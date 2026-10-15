@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Considered advisory for ambitious companies. REAU Studio advises founders and leadership teams on growth, strategy, operations, technology and creative direction.">
 <meta property="og:title" content="REAU Studio | Advisory &amp; Consulting Studio">
-<meta property="og:description" content="Considered advisory for ambitious companies. Strategy, operations, technology, and taste, all under one roof.">
+<meta property="og:description" content="Considered advisory for ambitious companies. Strategy, operations, technology and direction, all under one roof.">
 <meta property="og:image" content="/assets/og.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -278,6 +278,30 @@ p{margin:0}
 @keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.hero .wordmark .ch,.hero-top,.ctas,.hero-sub p{animation:none}}
 .ic{display:inline-block;width:.95em;height:.95em;vertical-align:-.12em;flex:none;overflow:visible}
+
+/* who it's for */
+.for{list-style:none;padding:0;margin:0 0 18px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;grid-column:1/-1}
+.for li{color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:.86rem;font-weight:500}
+.for li.label{border:0;padding:0 6px 0 0;color:var(--mute);font-size:.72rem}
+/* why */
+.whys{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,64px)}
+.whys li{border-top:1px solid var(--line);padding-top:18px}
+.whys .n{color:var(--oxblood)}
+.whys h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,2.4vw,2.2rem);line-height:1.05;margin:14px 0 14px}
+.whys p{color:var(--mute);line-height:1.6}
+.whys a,.proof-inline a{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;transition:color .3s}
+.whys a:hover{color:var(--oxblood)}
+.proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:clamp(48px,7vw,96px);border-top:1px solid var(--ink)}
+.proof a{position:relative;display:flex;flex-direction:column;gap:10px;padding:22px clamp(12px,2vw,28px) 26px 0;text-decoration:none;border-right:1px solid var(--line);margin-right:clamp(12px,2vw,28px)}
+.proof a:last-child{border-right:0;margin-right:0}
+.proof b{font-family:var(--sans);font-weight:400;font-size:clamp(2.4rem,4.4vw,4rem);line-height:1;letter-spacing:-.03em}
+.proof span{color:var(--mute);font-size:.92rem;max-width:16em}
+.proof i{position:absolute;top:24px;right:clamp(12px,2vw,28px);opacity:.35;transition:opacity .3s,transform .4s var(--ease)}
+.proof a:last-child i{right:0}
+.proof a:hover i{opacity:1;transform:translateX(3px)}
+.proof a:hover b{color:var(--oxblood)}
+@media (max-width:600px){.for li{font-size:.8rem;padding:6px 12px}}
+@media (max-width:900px){.whys{grid-template-columns:minmax(0,1fr)}.proof{grid-template-columns:repeat(2,minmax(0,1fr))}.proof a:nth-child(2){border-right:0;margin-right:0}.proof a:nth-child(2) i{right:0}.proof a:nth-child(n+3){border-top:1px solid var(--line)}}
 </style>
 </head>
 <body>
@@ -287,9 +311,9 @@ p{margin:0}
     <a class="mark" href="#begin" aria-label="REAU Studio, back to top">REAU STUDIO</a>
     <nav class="nav" aria-label="Main">
       <a href="#begin">Begin</a>
-      <a href="#services">Services</a>
       <a href="#work">Case Studies</a>
       <a href="#clients">Clients</a>
+      <a href="#services">Services</a>
       <a href="#inquire">Inquiries</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="sheet">Menu</button>
@@ -297,7 +321,7 @@ p{margin:0}
 </header>
 <div class="sheet" id="sheet" hidden>
   <button id="menuClose">Close</button>
-  <a href="#begin">Begin</a><a href="#services">Services</a><a href="#work">Case Studies</a><a href="#clients">Clients</a><a href="#inquire">Inquiries</a>
+  <a href="#begin">Begin</a><a href="#work">Case Studies</a><a href="#clients">Clients</a><a href="#services">Services</a><a href="#inquire">Inquiries</a>
 </div>
 
 <main>
@@ -305,7 +329,8 @@ p{margin:0}
   <div class="hero-top label"><span class="hero-eyebrow"><span class="dot"></span>A Global Consulting Agency</span><span class="hero-est">Est. 2023</span></div>
   <div class="hero-mid">
     <div class="hero-sub">
-      <p>Considered advisory for ambitious companies.<br class="br"> Strategy, operations, technology, and taste, all under one roof.</p>
+      <ul class="for" aria-label="Who we work with"><li class="label">For</li><li>Start-ups</li><li>Consultancies &amp; agencies</li><li>Professional services firms</li><li>Venture capital &amp; private equity</li><li>Brand-led founders &amp; creators</li></ul>
+      <p>Considered advisory for ambitious companies.<br class="br"> Strategy, operations, technology and direction, all under one roof.</p>
       <div class="ctas">
         <a class="btn solid" href="consultation.html">Request a consultation <span aria-hidden="true"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
         <a class="btn" href="#services">View services</a>
@@ -317,67 +342,21 @@ p{margin:0}
 
 <section class="read wrap" aria-label="About REAU Studio">
   <div class="shead"><span class="label">The studio</span><span class="label r">Est. 2023 · Worldwide</span></div>
-  <p class="readthru" id="readthru">Every company reaches the moment when instinct alone will not carry it further. That is usually when we are called. REAU Studio advises founders and leadership teams on growth, structure, technology, and taste, and leaves each business clearer, calmer and considerably harder to ignore.</p>
+  <p class="readthru" id="readthru">Every ambitious company reaches the point where instinct alone stops carrying it. REAU Studio was founded for that moment. We advise founders and leadership teams on growth, structure, technology and direction, and leave each business clearer, quicker and considerably harder to ignore.</p>
 </section>
 
-<section class="sec wrap" id="services" style="padding-top:0">
-  <div class="shead"><span class="label">Services</span><span class="label r">Six departments</span></div>
-  <div class="stack">
-    <article class="panel" data-dark style="--i:0">
-      <div class="tab"><span class="label">01 · Business Development</span><span class="label">Growth</span></div>
-      <div class="panel-body">
-        <div><h3>Business <em>Development</em></h3><p class="desc">Growth, properly planned. We shape market entry, partnerships and the story investors hear, so expansion happens on your terms.</p></div>
-        <div><ul class="inc"><li>Growth and market-entry strategy</li><li>Offer, pricing and revenue structure</li><li>Partnerships and strategic alliances</li><li>Pitch, sales narrative and investor materials</li></ul><p class="for">For founders preparing to scale, raise or expand.</p></div>
-      </div>
-    </article>
-    <article class="panel" style="--i:1">
-      <div class="tab"><span class="label">02 · Strategy &amp; Positioning</span><span class="label">Clarity</span></div>
-      <div class="panel-body">
-        <div><h3>Brand Strategy &amp; <em>Positioning</em></h3><p class="desc">A clear place in the market, and the composure to hold it. Positioning and messaging that let the right customers recognise you at once.</p></div>
-        <div><ul class="inc"><li>Market and competitor analysis</li><li>Positioning and value proposition</li><li>Messaging architecture</li><li>Go-to-market planning</li></ul><p class="for">For launches, pivots and second acts.</p></div>
-      </div>
-    </article>
-    <article class="panel" data-dark style="--i:2">
-      <div class="tab"><span class="label">03 · Operations &amp; Advisory</span><span class="label">Streamlining</span></div>
-      <div class="panel-body">
-        <div><h3>Operations &amp; <em>Advisory</em></h3><p class="desc">The unglamorous work, done beautifully. We streamline how the business runs, so decisions come easier and the founder gets their evenings back.</p></div>
-        <div><ul class="inc"><li>Process and workflow audits</li><li>Systems and tool stack review</li><li>Agency and vendor management</li><li>Fractional strategic leadership</li></ul><p class="for">For founders who would rather lead than firefight.</p></div>
-      </div>
-    </article>
-    <article class="panel" style="--i:3">
-      <div class="tab"><span class="label">04 · Creative Direction</span><span class="label">Creative</span></div>
-      <div class="panel-body">
-        <div><h3>Creative <em>Direction</em></h3><p class="desc">Taste, applied consistently. Senior creative direction for everything your customers see, working discreetly alongside your own team.</p></div>
-        <div><ul class="inc"><li>Identity refinement and visual standards</li><li>Campaign and content direction</li><li>Brand guidelines and consistency</li><li>Creative direction on retainer</li></ul><p class="for">For established brands with standards to keep.</p></div>
-      </div>
-    </article>
-    <article class="panel" data-dark style="--i:4">
-      <div class="tab"><span class="label">05 · AI Workflows</span><span class="label">Technology</span></div>
-      <div class="panel-body">
-        <div><h3>AI Workflows &amp; <em>Automation</em></h3><p class="desc">Artificial intelligence, used with real judgement. We build AI into the way your team already works, so output rises and standards stay exactly where they are.</p></div>
-        <div><ul class="inc"><li>Workflow mapping and opportunity review</li><li>AI tool selection and integration</li><li>Automations across sales, content and operations</li><li>Team training and usage guidelines</li></ul><p class="for">For teams who would like a few more hours in the day.</p></div>
-      </div>
-    </article>
-    <article class="panel" style="--i:5">
-      <div class="tab"><span class="label">06 · Apps &amp; Platforms</span><span class="label">Product</span></div>
-      <div class="panel-body">
-        <div><h3>App Design &amp; <em>Platform Building</em></h3><p class="desc">Digital products made with the same care as everything else. Apps, platforms and internal tools that people enjoy using.</p></div>
-        <div><ul class="inc"><li>Product strategy and scoping</li><li>App and interface design</li><li>Websites, portals and platforms</li><li>Internal tools and dashboards</li></ul><p class="for">For services, ideas and processes ready to become products.</p></div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="how" id="process" style="--n:4">
-  <div class="pin wrap">
-    <div class="shead"><span class="label">Process</span><span class="label r">By appointment</span></div>
-    <div class="stages" id="stages">
-      <div class="stage on" data-i="0"><span class="ct">I <i>/</i> IV</span><h3>Consultation<em>.</em></h3><p>A considered first conversation. We listen rather more than we talk.</p></div>
-      <div class="stage" data-i="1"><span class="ct">II <i>/</i> IV</span><h3>Discovery<em>.</em></h3><p>An honest read of the business: what is working, what is not, and what deserves attention first.</p></div>
-      <div class="stage" data-i="2"><span class="ct">III <i>/</i> IV</span><h3>Delivery<em>.</em></h3><p>The work itself, carried out alongside your team with care and very little fuss.</p></div>
-      <div class="stage" data-i="3"><span class="ct">IV <i>/</i> IV</span><h3>Advisory<em>.</em></h3><p>We remain on hand as the company grows. Think of it as a standing reservation.</p></div>
-    </div>
-    <div class="prog" aria-hidden="true"><span class="fill" id="progFill"></span><span class="d on"></span><span class="d"></span><span class="d"></span><span class="d"></span></div>
+<section class="why sec wrap" id="why" style="padding-top:0">
+  <div class="shead"><span class="label">Why REAU Studio</span><span class="label r">The short answer</span></div>
+  <ol class="whys">
+    <li><span class="n label">01</span><h3>One roof, not six suppliers</h3><p>Strategy, operations, technology and creative direction from a single studio, so nothing is lost in the handover. <a href="work/vis10n-holdings.html">VIS10N Holdings</a> trusts us with its brand, its website and the daily running of the business.</p></li>
+    <li><span class="n label">02</span><h3>Results you can count</h3><p>We are judged on numbers, and we rather like it that way. <a href="work/power-dental-group.html">Power Dental Group</a> grew its Instagram following 121 times over in eighteen months, with an engagement rate of 12%.</p></li>
+    <li><span class="n label">03</span><h3>We stay for the doing</h3><p>No deck left on the table with an invoice beneath it. We build the systems, run the day-to-day and see the plan through, for as long as it takes to <a href="#work">show in the results</a>.</p></li>
+  </ol>
+  <div class="proof">
+    <a href="work/power-dental-group.html"><b>121×</b><span>Instagram growth for Power Dental Group</span><i><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></a>
+    <a href="work/power-dental-group.html"><b>48.4K</b><span>Followers built in eighteen months</span><i><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></a>
+    <a href="work/power-dental-group.html"><b>12%</b><span>Engagement rate, well above the industry average</span><i><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></a>
+    <a href="#clients"><b>25+</b><span>Named clients, and several who prefer we keep quiet</span><i><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></a>
   </div>
 </section>
 
@@ -413,9 +392,74 @@ p{margin:0}
 </section>
 
 <section class="clients sec wrap" id="clients">
-  <div class="shead"><span class="label">Clients</span><span class="label r">In good company</span></div>
+  <div class="shead"><span class="label">Clients</span><span class="label r">Founders, athletes, firms &amp; public figures</span></div>
   <p class="credits"><a class="f" href="https://luxeassist.ai" target="_blank" rel="noopener">Luxe Assist AI</a> <a class="f" href="https://vis10nholdings.com" target="_blank" rel="noopener">VIS10N Holdings</a> <a class="f" href="https://powerdentalgroup.com" target="_blank" rel="noopener">Power Dental Group</a> <a class="f" href="https://www.rsm.global/eswatini/" target="_blank" rel="noopener">RSM Eswatini</a> <span class="f">Axion RMS</span> <a class="f" href="https://wardrobe-department.com" target="_blank" rel="noopener">Wardrobe Department</a> <span class="f">HLB Eswatini</span> <a class="f" href="https://closetfairy.com" target="_blank" rel="noopener">Closet Fairy Styling</a> <a class="r" href="https://vanessafabila.com" target="_blank" rel="noopener">Vanessa Fabila</a> <a class="r" href="https://styledbydes.com" target="_blank" rel="noopener">Styled by Des</a> <a class="r" href="https://taylarcoyer.com" target="_blank" rel="noopener">Taylar Coyer</a> <a class="r" href="https://beacons.ai/kmohaus" target="_blank" rel="noopener">KMO Haus</a> <a class="r" href="https://ver--ona.com" target="_blank" rel="noopener">VERONA</a> <a class="r" href="https://radiantlyrelaxedskin.com/" target="_blank" rel="noopener">Radiantly Relaxed</a> <a class="r" href="https://instagram.com/bestselfsara" target="_blank" rel="noopener">Best Self Sara</a> <a class="r" href="https://instagram.com/treyyrogers" target="_blank" rel="noopener">Trey Rogers</a> <a class="r" href="https://instagram.com/sonia.elyss" target="_blank" rel="noopener">Sonia Elyss</a> <a class="r" href="https://assemble.fyi" target="_blank" rel="noopener">Assemble FYI</a> <a class="r" href="https://tiktok.com/@chaosinchicago" target="_blank" rel="noopener">Daily Dose of Chicago</a> <a class="r" href="https://instagram.com/bova.wilson" target="_blank" rel="noopener">Bova Wilson</a> <a class="r" href="https://instagram.com/msmilanzoe" target="_blank" rel="noopener">Milan Zoe</a> <span class="r">Queen Group Realtors</span> <a class="r" href="https://curlqueenofficial.com" target="_blank" rel="noopener">Curl Queen Official</a> <span class="r">Ekam Organics</span> <span class="r">Charlotte Clark</span> <a class="r" href="https://inkosazana.com" target="_blank" rel="noopener">Inko Sazana</a><span class="r quiet-line">And a number of clients who prefer we keep things quiet</span></p>
 </section>
+
+<section class="sec wrap" id="services" style="padding-top:0">
+  <div class="shead"><span class="label">Services</span><span class="label r">Six departments</span></div>
+  <div class="stack">
+    <article class="panel" data-dark style="--i:0">
+      <div class="tab"><span class="label">01 · Business Development</span><span class="label">Growth</span></div>
+      <div class="panel-body">
+        <div><h3>Business <em>Development</em></h3><p class="desc">Growth, properly planned. We shape market entry, partnerships and the story investors hear, so expansion happens on your terms.</p></div>
+        <div><ul class="inc"><li>Growth and market-entry strategy</li><li>Offer, pricing and revenue structure</li><li>Partnerships and strategic alliances</li><li>Pitch, sales narrative and investor materials</li></ul><p class="for">For founders preparing to scale, raise or expand.</p></div>
+      </div>
+    </article>
+    <article class="panel" style="--i:1">
+      <div class="tab"><span class="label">02 · Strategy &amp; Positioning</span><span class="label">Clarity</span></div>
+      <div class="panel-body">
+        <div><h3>Brand Strategy &amp; <em>Positioning</em></h3><p class="desc">A clear place in the market, and the composure to hold it. Positioning and messaging that let the right customers recognise you at once.</p></div>
+        <div><ul class="inc"><li>Market and competitor analysis</li><li>Positioning and value proposition</li><li>Messaging architecture</li><li>Go-to-market planning</li></ul><p class="for">For launches, pivots and second acts.</p></div>
+      </div>
+    </article>
+    <article class="panel" data-dark style="--i:2">
+      <div class="tab"><span class="label">03 · Operations &amp; Advisory</span><span class="label">Streamlining</span></div>
+      <div class="panel-body">
+        <div><h3>Operations &amp; <em>Advisory</em></h3><p class="desc">The unglamorous work, done beautifully. We streamline how the business runs, so decisions come easier and the founder gets their evenings back.</p></div>
+        <div><ul class="inc"><li>Process and workflow audits</li><li>Systems and tool stack review</li><li>Agency and vendor management</li><li>Fractional strategic leadership</li></ul><p class="for">For founders who would rather lead than firefight.</p></div>
+      </div>
+    </article>
+    <article class="panel" style="--i:3">
+      <div class="tab"><span class="label">04 · Creative Direction</span><span class="label">Creative</span></div>
+      <div class="panel-body">
+        <div><h3>Creative <em>Direction</em></h3><p class="desc">A clear point of view, applied consistently. Senior creative direction for everything your customers see, working discreetly alongside your own team.</p></div>
+        <div><ul class="inc"><li>Identity refinement and visual standards</li><li>Campaign and content direction</li><li>Brand guidelines and consistency</li><li>Creative direction on retainer</li></ul><p class="for">For established brands with standards to keep.</p></div>
+      </div>
+    </article>
+    <article class="panel" data-dark style="--i:4">
+      <div class="tab"><span class="label">05 · AI Workflows</span><span class="label">Technology</span></div>
+      <div class="panel-body">
+        <div><h3>AI Workflows &amp; <em>Automation</em></h3><p class="desc">Artificial intelligence, used with real judgement. We build AI into the way your team already works, so output rises and standards stay exactly where they are.</p></div>
+        <div><ul class="inc"><li>Workflow mapping and opportunity review</li><li>AI tool selection and integration</li><li>Automations across sales, content and operations</li><li>Team training and usage guidelines</li></ul><p class="for">For teams who would like a few more hours in the day.</p></div>
+      </div>
+    </article>
+    <article class="panel" style="--i:5">
+      <div class="tab"><span class="label">06 · Apps &amp; Platforms</span><span class="label">Product</span></div>
+      <div class="panel-body">
+        <div><h3>App Design &amp; <em>Platform Building</em></h3><p class="desc">Digital products made with the same care as everything else. Apps, platforms and internal tools that people enjoy using.</p></div>
+        <div><ul class="inc"><li>Product strategy and scoping</li><li>App and interface design</li><li>Websites, portals and platforms</li><li>Internal tools and dashboards</li></ul><p class="for">For services, ideas and processes ready to become products.</p></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="how" id="process" style="--n:4">
+  <div class="pin wrap">
+    <div class="shead"><span class="label">Process</span><span class="label r">By appointment</span></div>
+    <div class="stages" id="stages">
+      <div class="stage on" data-i="0"><span class="ct">I <i>/</i> IV</span><h3>Consultation<em>.</em></h3><p>A considered first conversation. We listen rather more than we talk.</p></div>
+      <div class="stage" data-i="1"><span class="ct">II <i>/</i> IV</span><h3>Discovery<em>.</em></h3><p>An honest read of the business: what is working, what is not, and what deserves attention first.</p></div>
+      <div class="stage" data-i="2"><span class="ct">III <i>/</i> IV</span><h3>Delivery<em>.</em></h3><p>The work itself, carried out alongside your team with care and very little fuss.</p></div>
+      <div class="stage" data-i="3"><span class="ct">IV <i>/</i> IV</span><h3>Advisory<em>.</em></h3><p>We remain on hand as the company grows. Think of it as a standing reservation.</p></div>
+    </div>
+    <div class="prog" aria-hidden="true"><span class="fill" id="progFill"></span><span class="d on"></span><span class="d"></span><span class="d"></span><span class="d"></span></div>
+  </div>
+</section>
+
+
+
+
 
 <section class="journal sec wrap" id="journal">
   <div class="shead"><span class="label">Journal</span><a class="label r" href="https://instagram.com/reau.studio" target="_blank" rel="noopener">Follow on Instagram <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
