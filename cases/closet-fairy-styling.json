@@ -1,0 +1,158 @@
+{
+  "slug": "closet-fairy-styling",
+  "number": "03",
+  "client": "Closet Fairy Styling",
+  "wordmark": "CLOSET FAIRY",
+  "sector": "Personal styling",
+  "location": "New York, USA",
+  "engagement": "May 2023 to October 2025",
+  "services": [
+    "Brand Voice and Copywriting",
+    "Social Media Management",
+    "Content Direction and Production",
+    "Ad Creative"
+  ],
+  "website": "https://closetfairy.com",
+  "summary": "Our very first client. One video, 538,000 views and more than $145,000 in enquiries later, we are still rather fond of her.",
+  "glance": {
+    "label": "At a glance",
+    "right": "The short version",
+    "overview": "For two and a half years we ran Closet Fairy's social media end to end: the voice, the content, the shoots and the ads. One series, Client Journeys, became her best-performing content and brought in more than $145,000 of enquiries on its own.",
+    "wins_label": "Quick wins",
+    "wins": [
+      "A brand voice for a personal stylist stepping into a new era",
+      "Client Journeys, her signature series, still her best-performing content",
+      "538,000 views and more than $145,000 in inbound enquiries from a single video",
+      "12K followers, built from the ground up",
+      "Three content shoots directed, one of them in New York"
+    ]
+  },
+  "stats": [
+    {
+      "value": 538,
+      "suffix": "K",
+      "label": "Views on a single Client Journeys video"
+    },
+    {
+      "value": 145,
+      "prefix": "$",
+      "suffix": "K",
+      "label": "More than this in inbound enquiries, from that one video"
+    },
+    {
+      "value": 12,
+      "suffix": "K",
+      "label": "Instagram followers, built from the ground up"
+    },
+    {
+      "value": 3,
+      "label": "Content shoots directed, one of them in New York"
+    }
+  ],
+  "brief_label": "The brief",
+  "brief": "Sara Mahdavi was our very first client. She came to us as she was starting [Closet Fairy](https://closetfairy.com) and stepping into a new era as a personal stylist. She needed a brand that sounded like her, a presence that showed how she works, and an audience that would become clients.",
+  "chapters": [
+    {
+      "numeral": "I",
+      "title": "Finding the voice",
+      "when": "May 2023",
+      "body": [
+        "We began at the beginning: who Closet Fairy is, how she speaks and how she shows up. We defined the brand voice, and the way Sara would appear on social media as she stepped into her new era.",
+        "From there we took over her social media entirely, and carried the same voice onto her website through copywriting and blog posts."
+      ],
+      "deliverables": [
+        "Brand voice",
+        "Social media strategy",
+        "Copywriting",
+        "Blog posts"
+      ],
+      "figure": {
+        "file": "sara.jpg",
+        "label": "Sara Mahdavi",
+        "alt": "Sara Mahdavi, founder of Closet Fairy Styling",
+        "caption": "Sara Mahdavi, founder of Closet Fairy Styling"
+      }
+    },
+    {
+      "numeral": "II",
+      "title": "Client Journeys",
+      "when": "The signature series",
+      "body": [
+        "We created Client Journeys, a series that follows Sara's signature styling process from the first conversation to the finished wardrobe, with each client's result as the reveal.",
+        "It remains her best-performing content. A single video reached 538,000 views and brought in more than $145,000 of inbound enquiries. We ran the series for every client thereafter."
+      ],
+      "deliverables": [
+        "Format development",
+        "Scripting",
+        "Direction",
+        "Editing"
+      ],
+      "aside": [
+        {
+          "value": "538K",
+          "label": "Views on a single video"
+        },
+        {
+          "value": "$145K+",
+          "label": "Inbound enquiries from that video alone"
+        }
+      ]
+    },
+    {
+      "numeral": "III",
+      "title": "Everything else, handled",
+      "when": "Through October 2025",
+      "body": [
+        "Around Client Journeys we built the rest of the content mix, and every format earned its place among her top performers. We wrote, scripted, directed and edited all of it, and managed the account day to day.",
+        "We also turned Client Journeys into advertising, with A/B versions for paid campaigns, and directed three content shoots, including one in New York."
+      ],
+      "deliverables": [
+        "Social media management",
+        "Content production",
+        "Ad creative",
+        "Shoot direction"
+      ],
+      "roadmap_label": "The content mix",
+      "roadmap": [
+        {
+          "kicker": "Signature series",
+          "title": "Client Journeys",
+          "text": "The styling process, start to finish, for every client."
+        },
+        {
+          "kicker": "Conversation",
+          "title": "Q&As",
+          "text": "Sara answering the questions her audience was already asking."
+        },
+        {
+          "kicker": "Behind the scenes",
+          "title": "A day in the life",
+          "text": "The work of a personal stylist, as it happens."
+        },
+        {
+          "kicker": "Transformation",
+          "title": "Before and after",
+          "text": "The results, side by side."
+        },
+        {
+          "kicker": "Paid",
+          "title": "Ad creative",
+          "text": "A/B versions of Client Journeys, built for advertising."
+        }
+      ]
+    }
+  ],
+  "closing": {
+    "label": "The result",
+    "right": "May 2023 to October 2025",
+    "text": "Sara is now rated the top personal stylist in New York City. We would not dream of taking the credit, but we are proud to have been part of the journey."
+  },
+  "next": {
+    "label": "Next case study",
+    "title": "VESTRIUM Global",
+    "note": "Business advisory",
+    "href": "vestrium-global.html"
+  },
+  "layout": "stacked",
+  "role": "Brand voice, social media and content partner"
+}
