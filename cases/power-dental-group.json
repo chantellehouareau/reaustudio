@@ -22,7 +22,7 @@
   "glance": {
     "label": "At a glance",
     "right": "The short version",
-    "overview": "We gave a clinical category a luxury point of view, put the team confidently on camera, and created the content series that made the profession pay attention.",
+    "overview": "We made Power Dental Group the best-performing dental instrument manufacturer on the internet. A clinical category was given a luxury point of view, the team became confident on camera, and three content series made the profession pay attention.",
     "wins_label": "Quick wins",
     "wins": [
       "A luxury-led digital identity that sets the brand apart from a clinical category",
@@ -118,7 +118,7 @@
       "when": "Q4 2024",
       "body": [
         "With the identity settled, we turned to the feed. Together with our production partner we built a social strategy suited to the business, settled the team into a weekly filming rhythm, and media-trained them on how they speak, present and carry themselves on camera.",
-        "The audience noticed. In nine months the Instagram following grew from 400 to 4,500, and the market began to treat Power Dental Group as one of its leading voices. That was the foundation. The next stage built on it."
+        "The audience noticed. In nine months the Instagram following grew from 400 to 4,500, and the market began to treat Power Dental Group as one of its leading voices."
       ],
       "deliverables": [
         "Social strategy",
@@ -161,7 +161,7 @@
       "aside": [
         {
           "value": "11×",
-          "label": "Instagram growth in the first nine months, from 400 followers to 4,500"
+          "label": "Instagram growth in nine months, from 400 followers to 4,500"
         },
         {
           "value": "17K",
@@ -178,8 +178,8 @@
       "title": "Finding the audience",
       "when": "Q2 2025",
       "body": [
-        "With 4,500 people now paying attention, Q2 2025 was the moment to give them something worth sharing. We ideated, introduced and directed three new content series. Each ran for around three months, each went viral, and the team still films all three today.",
-        "Alongside them we directed a run of mid-form vlogs. Over the next nine months Instagram grew more than tenfold again, to 48,400 followers by the close of 2025, with TikTok up 10,000 and YouTube up 5,000."
+        "Then we raised the stakes. In Q2 2025 we ideated, introduced and directed three new content series. Each ran for around three months, each went viral, and the team still films all three today.",
+        "Alongside them we directed a run of mid-form vlogs. By the close of 2025 Instagram had reached 48,400 followers, with TikTok up 10,000 and YouTube up 5,000. No dental instrument manufacturer performed better online."
       ],
       "deliverables": [
         "Format development",
@@ -211,18 +211,18 @@
         }
       ],
       "chart": {
-        "title": "Eighteen months on Instagram",
+        "title": "Instagram followers",
         "points": [
           {
             "x": 0,
             "y": 400,
-            "label": "The engagement begins",
+            "label": "Where we began",
             "tick": "Start"
           },
           {
             "x": 9,
             "y": 4500,
-            "label": "Stage one complete, new series launch",
+            "label": "The new series launch, Q2 2025",
             "tick": "Q2 2025"
           },
           {
@@ -234,7 +234,7 @@
         ],
         "ymax": 50000,
         "xmax": 18,
-        "note": "Stage one, the foundations: 400 to 4,500. Stage two, the new series: 4,500 to 48,400."
+        "note": "Nine months to set the foundations. Nine more to lead the category."
       }
     }
   ],
