@@ -284,22 +284,27 @@ p{margin:0}
 .ic{display:inline-block;width:.95em;height:.95em;vertical-align:-.12em;flex:none;overflow:visible}
 
 /* who we work with */
-.who{padding-bottom:clamp(40px,5vw,72px)}
-.whos{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.4vw,20px)}
-.whos li{position:relative;display:flex;flex-direction:column;gap:18px;min-height:clamp(240px,22vw,300px);padding:clamp(20px,2vw,28px);border:1px solid var(--line);border-radius:6px;background:var(--paper);transition:background .5s var(--ease),color .5s var(--ease),border-color .5s var(--ease),transform .6s var(--ease)}
-.whos .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.whos .pill{display:inline-block;font-family:var(--sans);font-size:.9rem;font-weight:500;letter-spacing:0;line-height:1.2;padding:9px 16px;border:1px solid var(--ink);border-radius:999px;transition:background .5s var(--ease),color .5s var(--ease)}
-.whos .n{color:var(--mute);transition:color .5s var(--ease)}
-.whos p{color:var(--mute);line-height:1.6;flex:1;transition:color .5s var(--ease)}
-.whos .more{align-self:flex-start;text-decoration:none;color:inherit;display:inline-flex;gap:8px;align-items:center;white-space:nowrap}
-.whos .more::after{content:"";position:absolute;inset:0;border-radius:6px}
-.whos .more .ic{transition:transform .4s var(--ease)}
-.whos li:hover{background:#F1F0EC;border-color:rgba(11,11,11,.28);transform:translateY(-4px);box-shadow:0 18px 40px -28px rgba(11,11,11,.35)}
-.whos li:hover .pill{background:var(--ink);color:var(--paper)}
-.whos li:hover p{color:#4A4946}
-.whos li:hover .more .ic{transform:translateX(4px)}
-@media (max-width:1000px){.whos{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:640px){.whos{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:82%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:calc(var(--gutter) * -1);padding:4px var(--gutter) 8px;scroll-padding-inline:var(--gutter)}.whos::-webkit-scrollbar{display:none}.whos li{scroll-snap-align:start;min-height:280px}.whos li:hover{transform:none}}
+.who{padding-bottom:clamp(60px,7vw,110px)}
+.whobox{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,110px);align-items:start}
+.wtabs{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.wtab{position:relative;overflow:hidden;font:inherit;font-size:.95rem;font-weight:500;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:999px;padding:11px 20px;cursor:pointer;transition:border-color .4s var(--ease),color .4s var(--ease),background .4s var(--ease)}
+.wtab span{position:relative;z-index:1}
+.wtab:hover{border-color:var(--ink)}
+.wtab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.wbar{position:absolute;left:0;top:-2px;height:3px;width:100%;background:var(--oxblood);transform:scaleX(0);transform-origin:left}
+.whobox.auto .wbar{animation:wbar var(--dur,6s) linear forwards}
+@keyframes wbar{to{transform:scaleX(1)}}
+.wps{position:relative;display:grid;border-top:1px solid var(--ink);padding-top:22px}
+.wp{grid-area:1/1;display:flex;flex-direction:column;gap:clamp(20px,2.4vw,32px);opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .6s var(--ease),transform .8s var(--ease),visibility 0s .6s}
+.wp.on{opacity:1;visibility:visible;transform:none;transition:opacity .7s var(--ease) .1s,transform .9s var(--ease) .1s,visibility 0s}
+.wp .n{color:var(--mute)}
+.wp .wt{font-family:var(--serif);font-size:clamp(1.7rem,2.9vw,2.7rem);line-height:1.14;letter-spacing:-.01em;max-width:22em}
+.wp .more{align-self:flex-start;text-decoration:none;color:var(--ink);display:inline-flex;gap:8px;align-items:center;border-bottom:1px solid var(--ink);padding-bottom:6px;transition:color .3s}
+.wp .more .ic{transition:transform .4s var(--ease)}
+.wp .more:hover{color:var(--oxblood);border-color:var(--oxblood)}
+.wp .more:hover .ic{transform:translateX(4px)}
+@media (max-width:860px){.whobox{grid-template-columns:minmax(0,1fr);gap:28px}.wtabs{flex-direction:row;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter);gap:8px}.wtabs::-webkit-scrollbar{display:none}.wtab{flex:none;font-size:.86rem;padding:9px 16px}}
+@media (prefers-reduced-motion:reduce){.wp,.wp.on{transition:none;transform:none}.whobox.auto .wbar{animation:none}}
 
 /* loading screen */
 #intro{position:fixed;inset:0;z-index:300;background:#0B0B0B;color:#F7F6F2;display:grid;place-items:center;transition:transform 1.1s cubic-bezier(.76,0,.24,1)}
@@ -412,14 +417,10 @@ html.intro-on .hero .wordmark .ch,html.intro-on .hero-top,html.intro-on .ctas,ht
 
 <section class="who wrap" id="who">
   <div class="shead"><span class="label">Who we work with</span><span class="label r">And why they call</span></div>
-  <ul class="whos">
-    <li><div class="top"><h3 class="pill">Start-ups</h3><span class="n label">01</span></div><p>When the idea is ready and the business around it is not quite. We put the structure, brand and systems in place to carry it.</p><a class="more label" href="https://luxeassist.ai" target="_blank" rel="noopener">See Luxe Assist AI <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-    <li><div class="top"><h3 class="pill">Consultancies &amp; agencies</h3><span class="n label">02</span></div><p>Advisory firms and agencies whose clients expect the very best, from the sports field to the boardroom. We shape the brand, the offer and the way new work is won, so the firm looks every bit as considered as its advice.</p><a class="more label" href="https://vestriumglobal.com" target="_blank" rel="noopener">See VESTRIUM Global <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-    <li><div class="top"><h3 class="pill">Professional services firms</h3><span class="n label">03</span></div><p>Local firms within global networks, among them HLB Eswatini and RSM Eswatini. We set the direction for how global brand standards apply at partner-firm level, then help see it through, so every touchpoint looks and feels in step with the network.</p><a class="more label" href="https://www.rsm.global/eswatini/" target="_blank" rel="noopener">See RSM Eswatini <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-    <li><div class="top"><h3 class="pill">Venture capital &amp; private equity</h3><span class="n label">04</span></div><p>Investors who would like their companies to perform. We work alongside the founders they back, as we do across the VIS10N portfolio.</p><a class="more label" href="work/vis10n-holdings.html">See VIS10N Holdings <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-    <li><div class="top"><h3 class="pill">Growing enterprises</h3><span class="n label">05</span></div><p>Companies with a fine product and a quiet reputation. Power Dental Group became the best-performing dental instrument manufacturer on the internet.</p><a class="more label" href="work/power-dental-group.html">See Power Dental Group <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-    <li><div class="top"><h3 class="pill">Brand-led founders &amp; creators</h3><span class="n label">06</span></div><p>People whose name is the brand. We look after the business behind the following, from content to operations.</p><a class="more label" href="#clients">See more of our clients <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-  </ul>
+  <div class="whobox" data-who>
+    <div class="wtabs" role="tablist" aria-label="Who we work with"><button type="button" role="tab" class="wtab" id="wt0" aria-controls="wp0" aria-selected="true"><span>Start-ups</span></button><button type="button" role="tab" class="wtab" id="wt1" aria-controls="wp1" aria-selected="false"><span>Consultancies &amp; agencies</span></button><button type="button" role="tab" class="wtab" id="wt2" aria-controls="wp2" aria-selected="false"><span>Professional services firms</span></button><button type="button" role="tab" class="wtab" id="wt3" aria-controls="wp3" aria-selected="false"><span>Venture capital &amp; private equity</span></button><button type="button" role="tab" class="wtab" id="wt4" aria-controls="wp4" aria-selected="false"><span>Growing enterprises</span></button><button type="button" role="tab" class="wtab" id="wt5" aria-controls="wp5" aria-selected="false"><span>Brand-led founders &amp; creators</span></button></div>
+    <div class="wps"><i class="wbar" aria-hidden="true"></i><div class="wp on" role="tabpanel" id="wp0" aria-labelledby="wt0"><span class="n label">01 / 06</span><p class="wt">When the idea is ready and the business around it is not quite. We put the structure, brand and systems in place to carry it.</p><a class="more label" href="https://luxeassist.ai" target="_blank" rel="noopener">See Luxe Assist AI <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="wp" role="tabpanel" id="wp1" aria-labelledby="wt1"><span class="n label">02 / 06</span><p class="wt">Advisory firms and agencies whose clients expect the very best, from the sports field to the boardroom. We shape the brand, the offer and the way new work is won.</p><a class="more label" href="https://vestriumglobal.com" target="_blank" rel="noopener">See VESTRIUM Global <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="wp" role="tabpanel" id="wp2" aria-labelledby="wt2"><span class="n label">03 / 06</span><p class="wt">Local firms within global networks. We set the direction for how global brand standards apply at partner-firm level, then help see it through, so every touchpoint is in step with the network.</p><a class="more label" href="https://www.rsm.global/eswatini/" target="_blank" rel="noopener">See RSM Eswatini <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="wp" role="tabpanel" id="wp3" aria-labelledby="wt3"><span class="n label">04 / 06</span><p class="wt">Investors who would like their companies to perform. We work alongside the founders they back, across brand, operations and growth.</p><a class="more label" href="work/vis10n-holdings.html" target="_blank" rel="noopener">See VIS10N Holdings <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="wp" role="tabpanel" id="wp4" aria-labelledby="wt4"><span class="n label">05 / 06</span><p class="wt">Companies with a fine product and a quiet reputation. We give them the presence, the following and the numbers to match.</p><a class="more label" href="work/power-dental-group.html" target="_blank" rel="noopener">See Power Dental Group <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="wp" role="tabpanel" id="wp5" aria-labelledby="wt5"><span class="n label">06 / 06</span><p class="wt">People whose name is the brand. We look after the business behind the following, from content to operations.</p><a class="more label" href="#clients">See more of our clients <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
+  </div>
 </section>
 
 <section class="work sec wrap" id="work">
@@ -628,6 +629,19 @@ html.intro-on .hero .wordmark .ch,html.intro-on .hero-top,html.intro-on .ctas,ht
   addEventListener('resize',function(){fitMarks();placeHero(1);all();});
   all();
 
+
+  // Who we work with: pill tabs, gently auto-advancing while in view until someone chooses
+  (function(){var box=document.querySelector('[data-who]');if(!box)return;var tabs=[].slice.call(box.querySelectorAll('.wtab')),ps=[].slice.call(box.querySelectorAll('.wp')),cur=0,timer=null,user=false,DUR=6000;
+    function show(i,focus){cur=i;tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===i?'true':'false');t.tabIndex=k===i?0:-1;});ps.forEach(function(p,k){p.classList.toggle('on',k===i);});
+      var t=tabs[i];if(t.parentNode.scrollWidth>t.parentNode.clientWidth){t.parentNode.scrollTo({left:t.offsetLeft-24,behavior:'smooth'});}if(focus)t.focus();}
+    function stop(){user=true;box.classList.remove('auto');clearInterval(timer);timer=null;}
+    function start(){if(user||reduce||timer)return;box.style.setProperty('--dur',DUR+'ms');box.classList.add('auto');timer=setInterval(function(){show((cur+1)%tabs.length);restartBar();},DUR);}
+    function restartBar(){box.classList.remove('auto');void box.offsetWidth;if(!user)box.classList.add('auto');}
+    tabs.forEach(function(t,k){t.addEventListener('click',function(){stop();show(k);});});
+    box.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();stop();show((cur+1)%tabs.length,true);}if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();stop();show((cur-1+tabs.length)%tabs.length,true);}});
+    if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)start();else if(timer){clearInterval(timer);timer=null;box.classList.remove('auto');}});},{threshold:.35}).observe(box);}
+    show(0);
+  })();
   // Copy email
   var cb=document.getElementById('copyBtn');
   if(cb)cb.onclick=function(){
