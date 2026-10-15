@@ -431,7 +431,6 @@ p{margin:0}
   <a class="cta-big" href="consultation.html"><span class="t">Request a consultation</span><span class="circ" aria-hidden="true"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
   <div class="cta-row">
     <a class="email-link" href="mailto:hello@reaustudio.com?subject=RS%20Inquiry" id="emailText">hello@reaustudio.com</a>
-    <button class="copy" id="copyBtn" type="button">Copy email</button>
   </div>
   <footer class="foot">
     <div><span class="label">Studio</span>128 City Road<br>London, UK</div>
@@ -524,7 +523,7 @@ p{margin:0}
 
   // Copy email
   var cb=document.getElementById('copyBtn');
-  cb.onclick=function(){
+  if(cb)cb.onclick=function(){
     function done(){cb.textContent='Copied';setTimeout(function(){cb.textContent='Copy email'},1600);}
     function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById('emailText'));var s=getSelection();s.removeAllRanges();s.addRange(r);cb.textContent='Selected';}
     try{navigator.clipboard.writeText('hello@reaustudio.com').then(done,fallback);}catch(e){fallback();}

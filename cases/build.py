@@ -522,7 +522,6 @@ TEMPLATE = r"""<!doctype html>
   <a class="cta-big" href="../consultation.html"><span class="t">Request a consultation</span><span class="circ" aria-hidden="true">↗</span></a>
   <div class="cta-row">
     <a class="email-link" href="mailto:hello@reaustudio.com?subject=RS%20Inquiry" id="emailText">hello@reaustudio.com</a>
-    <button class="copy" id="copyBtn" type="button">Copy email</button>
   </div>
   <footer class="foot">
     <div><span class="label">Studio</span>128 City Road<br>London, UK</div>
@@ -657,7 +656,7 @@ TEMPLATE = r"""<!doctype html>
   all();
 
   // Copy email
-  var cb=$('#copyBtn');cb.onclick=function(){function done(){cb.textContent='Copied';setTimeout(function(){cb.textContent='Copy email'},1600);}function fallback(){var r=document.createRange();r.selectNodeContents($('#emailText'));var s=getSelection();s.removeAllRanges();s.addRange(r);cb.textContent='Selected';}try{navigator.clipboard.writeText('hello@reaustudio.com').then(done,fallback);}catch(e){fallback();}};
+  var cb=$('#copyBtn');if(cb)cb.onclick=function(){function done(){cb.textContent='Copied';setTimeout(function(){cb.textContent='Copy email'},1600);}function fallback(){var r=document.createRange();r.selectNodeContents($('#emailText'));var s=getSelection();s.removeAllRanges();s.addRange(r);cb.textContent='Selected';}try{navigator.clipboard.writeText('hello@reaustudio.com').then(done,fallback);}catch(e){fallback();}};
 
   // Mobile menu
   var sheet=$('#sheet'),mb=$('#menuBtn');function close(){sheet.hidden=true;mb.setAttribute('aria-expanded','false');}
