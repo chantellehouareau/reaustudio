@@ -257,6 +257,8 @@ figcaption{color:var(--mute)}
 .row-nav button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--ink);cursor:pointer;font-size:.95rem;transition:background .3s,color .3s,border-color .3s}
 .row-nav button:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 
+.readthru a.inl{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.12em;transition:color .3s}
+.readthru a.inl:hover{color:var(--oxblood)}
 /* reel player */
 .rmodal{position:fixed;inset:0;z-index:90;background:rgba(11,11,11,.86);display:grid;place-items:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility 0s .4s}
 .rmodal.on{opacity:1;visibility:visible;transition:opacity .4s var(--ease)}
@@ -351,6 +353,10 @@ def media(slug, item, ratio, cls="frame"):
 
 def shead(l, r=""):
     return f'<div class="shead"><span class="label">{E(l)}</span><span class="label r">{E(r)}</span></div>'
+
+def md_links(s):
+    out = E(s)
+    return re.sub(r'\[([^\]]+)\]\((https?://[^)\s]+)\)', lambda m: f'<a class="inl" href="{m.group(2)}" target="_blank" rel="noopener">{m.group(1)}</a>', out)
 
 def reel_attr(u):
     m = re.search(r'instagram\.com/(reel|p)/([A-Za-z0-9_-]+)', u or '')
@@ -472,7 +478,7 @@ def build(path):
                 for s in d["stats"]) + '</div>')
         blk.append('</section>')
         body.append("".join(blk))
-    body.append(f'<section class="sec tight wrap" aria-label="{E(d["brief_label"])}">{shead(d["brief_label"], d["client"])}<p class="readthru">{E(d["brief"])}</p></section>')
+    body.append(f'<section class="sec tight wrap" aria-label="{E(d["brief_label"])}">{shead(d["brief_label"], d["client"])}<p class="readthru">{md_links(d["brief"])}</p></section>')
     for i, c in enumerate(d["chapters"]):
         body.append(chapter(slug, c, i, d.get("layout","")))
     if d.get("also"):
