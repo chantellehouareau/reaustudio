@@ -156,9 +156,31 @@ p{margin:0}
 .panel:nth-child(odd) .inc li{border-color:var(--line-on-ink)}
 .for{margin-top:22px;font-size:.95rem;opacity:.7}
 @media (max-width:760px){
-  .panel{position:relative;top:auto;min-height:0;border-radius:12px;margin-bottom:10px;border-bottom:1px solid var(--line)}
-  .stack{overflow:visible;border-radius:0}
-  .panel-body{grid-template-columns:minmax(0,1fr)}
+  .panel{--t:calc(var(--hdr) + 10px + var(--i) * 2.6rem);min-height:calc(100svh - var(--t) - var(--strip) - 14px);border-radius:14px 14px 0 0;padding:0 18px 22px;box-shadow:0 -12px 28px rgba(0,0,0,.10)}
+  .tab{height:2.6rem}
+  .tab .label{font-size:.62rem}
+  .panel-body{grid-template-columns:minmax(0,1fr);gap:16px;padding-top:18px}
+  .panel h3{font-size:clamp(2rem,9vw,2.6rem)}
+  .panel .desc{font-size:.98rem;margin-top:12px}
+  .inc li{padding:8px 0;font-size:.92rem}
+  .for{margin-top:12px;font-size:.88rem}
+  .stack{border-radius:0 0 14px 14px}
+}
+/* clients on phones: three gliding rows */
+.marq{display:none}
+@media (max-width:600px){
+  .credits.has-marq>:not(.quiet-line):not(.marq){display:none}
+  .credits.has-marq .quiet-line{margin-top:1.6em;font-size:1rem}
+  .marq{display:flex;flex-direction:column;gap:14px;margin-inline:calc(var(--gutter) * -1);overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+  .mrow{display:flex;width:max-content;animation:marq var(--d,60s) linear infinite}
+  .mrow.rev{animation-direction:reverse}
+  .mrow a,.mrow span{white-space:nowrap;text-decoration:none;font-size:1.2rem;padding-inline:14px;color:var(--mute)}
+  .mrow .f{color:var(--ink);font-weight:500}
+  .mrow>*+*::before{content:"\00B7";margin-right:28px;margin-left:-14px;color:var(--unlit)}
+  .marq:active .mrow{animation-play-state:paused}
+}
+@keyframes marq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.mrow{animation:none}}
 }
 
 /* ---------- process: pinned, one stage at a time ---------- */
@@ -637,6 +659,16 @@ html.intro-on .hero .wordmark .ch,html.intro-on .hero-top,html.intro-on .ctas,ht
   all();
 
 
+
+  // Clients on phones: split the list into three slowly gliding rows
+  (function(){var c=document.querySelector('.credits');if(!c)return;
+    var items=[].slice.call(c.children).filter(function(e){return !e.classList.contains('quiet-line');});
+    var m=document.createElement('div');m.className='marq';m.setAttribute('aria-hidden','true');
+    var rows=[[],[],[]];items.forEach(function(e,i){rows[i%3].push(e);});
+    rows.forEach(function(r,k){var row=document.createElement('div');row.className='mrow'+(k===1?' rev':'');row.style.setProperty('--d',(52+k*9)+'s');
+      for(var n=0;n<2;n++)r.forEach(function(e){var x=e.cloneNode(true);x.tabIndex=-1;row.appendChild(x);});m.appendChild(row);});
+    c.insertBefore(m,c.querySelector('.quiet-line'));c.classList.add('has-marq');
+  })();
   // Who we work with: pill tabs, gently auto-advancing while in view until someone chooses
   (function(){var box=document.querySelector('[data-who]');if(!box)return;var tabs=[].slice.call(box.querySelectorAll('.wtab')),ps=[].slice.call(box.querySelectorAll('.wp')),cur=0,timer=null,user=false,DUR=6000;
     function show(i,focus){cur=i;tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===i?'true':'false');t.tabIndex=k===i?0:-1;});ps.forEach(function(p,k){p.classList.toggle('on',k===i);});
