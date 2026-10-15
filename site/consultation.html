@@ -384,7 +384,13 @@ figcaption{color:var(--mute)}
 .p-note{font-family:var(--serif);font-size:clamp(1.5rem,2.4vw,2.2rem);line-height:1.15;max-width:22em;margin-bottom:clamp(36px,5vw,64px)}
 .partners{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));row-gap:clamp(32px,4vw,56px);gap:clamp(14px,2vw,28px)}
 .partner h3{font-size:clamp(1.5rem,2vw,1.9rem);margin-top:6px}
-.partner .label{color:var(--mute)}
+.partner .label{color:var(--mute);display:block;margin-top:6px}
+.r-11{aspect-ratio:1/1}
+.partner .frame{border-radius:50%;overflow:hidden;max-width:240px}
+.partner .frame img{transform:scale(1.14)}
+.partner .fol{display:block;margin-top:8px;font-family:var(--sans);font-size:1.4rem;letter-spacing:-.02em}.partner .fol small{font-size:.8rem;letter-spacing:0;color:var(--mute)}
+.partners{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+@media (max-width:900px){.partners{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media (max-width:600px){.partners{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* quote */

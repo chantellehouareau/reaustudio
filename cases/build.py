@@ -300,7 +300,13 @@ figcaption{color:var(--mute)}
 .p-note{font-family:var(--serif);font-size:clamp(1.5rem,2.4vw,2.2rem);line-height:1.15;max-width:22em;margin-bottom:clamp(36px,5vw,64px)}
 .partners{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));row-gap:clamp(32px,4vw,56px);gap:clamp(14px,2vw,28px)}
 .partner h3{font-size:clamp(1.5rem,2vw,1.9rem);margin-top:6px}
-.partner .label{color:var(--mute)}
+.partner .label{color:var(--mute);display:block;margin-top:6px}
+.r-11{aspect-ratio:1/1}
+.partner .frame{border-radius:50%;overflow:hidden;max-width:240px}
+.partner .frame img{transform:scale(1.14)}
+.partner .fol{display:block;margin-top:8px;font-family:var(--sans);font-size:1.4rem;letter-spacing:-.02em}.partner .fol small{font-size:.8rem;letter-spacing:0;color:var(--mute)}
+.partners{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+@media (max-width:900px){.partners{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media (max-width:600px){.partners{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* quote */
@@ -348,7 +354,8 @@ def chapter(slug, c, idx, layout=""):
         out.append('<div class="delivered"><span class="label">Delivered</span>' + "".join(f'<span class="chip">{E(d)}</span>' for d in c["deliverables"]) + '</div>')
     if c.get("beforeafter"):
         b, a = c["beforeafter"]["before"], c["beforeafter"]["after"]
-        out.append(f'''<div><div class="ba" data-ba>
+        bar = c["beforeafter"].get("ratio")
+        out.append(f'''<div><div class="ba" data-ba{f' style="aspect-ratio:{bar};max-width:{c["beforeafter"].get("max","100%")}"' if bar else ""}>
   <div class="layer">{media(slug,a,"",cls="frame")}</div>
   <div class="layer before">{media(slug,b,"",cls="frame")}</div>
   <span class="tag b label">{E(b.get("label","Before"))}</span><span class="tag a label">{E(a.get("label","After"))}</span>
@@ -456,7 +463,7 @@ def build(path):
     if d.get("partners"):
         body.append(f'<section class="sec wrap">{shead(d.get("partners_label","Partners"), "In good company")}' +
                     (f'<p class="p-note">{E(d["partners_note"])}</p>' if d.get("partners_note") else "") +
-                    '<div class="partners">' + "".join(f'<figure class="partner">{media(slug,{"file":p["file"],"label":"Portrait","alt":p["name"]},"r-45")}<h3>{E(p["name"])}</h3><span class="label">{E(p["role"])}</span></figure>' for p in d["partners"]) + '</div></section>')
+                    '<div class="partners">' + "".join(f'<figure class="partner">{media(slug,{"file":p["file"],"label":"Portrait","alt":p["name"]},"r-11")}<h3>{E(p["name"])}</h3><span class="label">{E(p["role"])}</span>' + (f'<span class="fol">{E(p["followers"])} <small>followers</small></span>' if p.get("followers") else "") + '</figure>' for p in d["partners"]) + '</div></section>')
     q = d.get("quote") or {}
     if q.get("name"):
         if q.get("text"):

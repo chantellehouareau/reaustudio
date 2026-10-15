@@ -384,7 +384,13 @@ figcaption{color:var(--mute)}
 .p-note{font-family:var(--serif);font-size:clamp(1.5rem,2.4vw,2.2rem);line-height:1.15;max-width:22em;margin-bottom:clamp(36px,5vw,64px)}
 .partners{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));row-gap:clamp(32px,4vw,56px);gap:clamp(14px,2vw,28px)}
 .partner h3{font-size:clamp(1.5rem,2vw,1.9rem);margin-top:6px}
-.partner .label{color:var(--mute)}
+.partner .label{color:var(--mute);display:block;margin-top:6px}
+.r-11{aspect-ratio:1/1}
+.partner .frame{border-radius:50%;overflow:hidden;max-width:240px}
+.partner .frame img{transform:scale(1.14)}
+.partner .fol{display:block;margin-top:8px;font-family:var(--sans);font-size:1.4rem;letter-spacing:-.02em}.partner .fol small{font-size:.8rem;letter-spacing:0;color:var(--mute)}
+.partners{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+@media (max-width:900px){.partners{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media (max-width:600px){.partners{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* quote */
@@ -486,7 +492,7 @@ figcaption{color:var(--mute)}
 
 <section class="sec wrap closing"><div class="shead"><span class="label">The result</span><span class="label r">Still in motion</span></div><p class="readthru">VIS10N carries itself like an institution, runs like one, and leaves its founder free to do what got him here in the first place.</p><div class="closing-cta"><a class="btn solid" href="../consultation.html">Begin your own chapter <span aria-hidden="true"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div></section>
 
-<section class="wrap"><a class="next" href="../index.html#work"><span class="row1"><span class="label">Next case study</span><span class="label">In preparation</span></span><h2><span class="t">Closet Fairy Styling</span><span class="arr" aria-hidden="true"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h2></a></section>
+<section class="wrap"><a class="next" href="vestrium-global.html"><span class="row1"><span class="label">Next case study</span><span class="label">Sport and business advisory</span></span><h2><span class="t">VESTRIUM Global</span><span class="arr" aria-hidden="true"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h2></a></section>
 
 <section class="inquire wrap" id="inquire">
   <div class="shead on-ink"><span class="label">Inquiries</span></div>

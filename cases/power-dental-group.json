@@ -72,38 +72,40 @@
         "Digital identity"
       ],
       "beforeafter": {
+        "ratio": "4/5",
+        "max": "560px",
         "before": {
-          "file": "power dental before 3.jpg",
+          "file": "feed-before.jpg",
           "label": "Before",
-          "alt": "Power Dental Group social presence before the engagement"
+          "alt": "Power Dental Group's Instagram feed before the engagement"
         },
         "after": {
-          "file": "IMG_5274.png",
+          "file": "feed-after.jpg",
           "label": "After",
-          "alt": "Power Dental Group social presence after the new identity"
+          "alt": "Power Dental Group's Instagram feed after the new identity"
         }
       },
       "stages_label": "Four stages of the new identity",
       "stages": [
         {
-          "file": "power dental before 3.jpg",
+          "file": "feed-before.jpg",
           "label": "Before",
-          "alt": "Before the engagement"
+          "alt": "The feed before"
         },
         {
-          "file": "power dental group process.png",
+          "file": "exploration.jpg",
           "label": "Exploration",
-          "alt": "Exploring luxury references"
+          "alt": "Exploring the new direction"
         },
         {
-          "file": "power dental group after.png",
+          "file": "grid-2.jpg",
           "label": "Development",
           "alt": "Developing the new look and feel"
         },
         {
-          "file": "IMG_5274.png",
+          "file": "feed-after.jpg",
           "label": "After",
-          "alt": "The finished digital identity"
+          "alt": "The finished feed"
         }
       ]
     },
@@ -123,34 +125,34 @@
       ],
       "row": [
         {
-          "file": "pdg ig story 2.png",
+          "file": "story-1.jpg",
           "label": "Story",
           "alt": "Instagram story design"
         },
         {
-          "file": "pdg ig story 1.png",
+          "file": "story-2.jpg",
           "label": "Story",
           "alt": "Instagram story design"
         },
         {
-          "file": "power dental group instagram story after 3.png",
+          "file": "story-3.jpg",
           "label": "Story",
           "alt": "Instagram story design"
         },
         {
-          "file": "power dental group instagram story after 1.png",
+          "file": "story-4.jpg",
           "label": "Story",
           "alt": "Instagram story design"
         },
         {
-          "file": "power dental group after 2.png",
+          "file": "grid-1.jpg",
           "label": "Feed",
           "alt": "Refreshed Instagram feed"
         },
         {
-          "file": "IMG_5287.jpg",
-          "label": "On set",
-          "alt": "Weekly filming with the Power Dental Group team"
+          "file": "grid-2.jpg",
+          "label": "Feed",
+          "alt": "Refreshed Instagram feed"
         }
       ],
       "aside": [
@@ -237,19 +239,28 @@
   "partners_note": "We managed influencer relations, outreach and campaigns with respected clinicians and educators, lending the brand authority, and then some.",
   "partners": [
     {
-      "name": "Dr Melanie",
-      "role": "Clinician partner",
-      "file": "pdg partner dr melanie.jpg"
+      "name": "Dr Michael Apa",
+      "role": "Aesthetic dentist",
+      "followers": "638K",
+      "file": "partner-apa.jpg"
     },
     {
-      "name": "Dr Wong",
-      "role": "Clinician partner",
-      "file": "pdg partner dr wong.jpg"
+      "name": "Dr Melanie Silvestrini",
+      "role": "Aesthetic and implant dentist",
+      "followers": "85.6K",
+      "file": "partner-melanie.jpg"
     },
     {
-      "name": "Dr Apa",
-      "role": "Clinician partner",
-      "file": "pdg partner dr apa.jpg"
+      "name": "Razel",
+      "role": "Dental student and creator",
+      "followers": "55.1K",
+      "file": "partner-razel.jpg"
+    },
+    {
+      "name": "Dr David Wong",
+      "role": "Periodontist, author and speaker",
+      "followers": "30.6K",
+      "file": "partner-wong.jpg"
     },
     {
       "name": "Dr Sinada",
@@ -264,7 +275,8 @@
     {
       "name": "Misch Implant Institute",
       "role": "Education partner",
-      "file": "pdg partner misch implant institute.jpg"
+      "followers": "",
+      "file": "partner-misch.jpg"
     }
   ],
   "quote": {

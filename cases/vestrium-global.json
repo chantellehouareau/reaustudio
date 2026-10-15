@@ -1,0 +1,82 @@
+{
+  "slug": "vestrium-global",
+  "number": "03",
+  "client": "VESTRIUM Global",
+  "wordmark": "VESTRIUM GLOBAL",
+  "sector": "Sport and business advisory",
+  "location": "",
+  "engagement": "Ongoing retainer",
+  "services": [
+    "Website Design and Development",
+    "Go-to-Market Strategy",
+    "Operations Advisory",
+    "Brand Building"
+  ],
+  "website": "https://vestriumglobal.com",
+  "summary": "A private business institution for sport, online in a day and advised ever since.",
+  "glance": {
+    "label": "At a glance",
+    "right": "Case study in progress",
+    "overview": "One day to put VESTRIUM Global online. A standing retainer to take it to market, advising the firm and its clients on operations and brand building.",
+    "wins_label": "So far",
+    "wins": [
+      "vestriumglobal.com, designed and built in a single day",
+      "A standing retainer through launch and go-to-market",
+      "Operations and brand-building advice for VESTRIUM and the clients it represents"
+    ]
+  },
+  "brief_label": "The brief",
+  "brief": "VESTRIUM Global brings the discipline of a private office to athletes and the businesses around them: structure, governance, personal brand and ventures. It needed to look established before its first introduction, and an adviser close at hand as it took itself to market.",
+  "chapters": [
+    {
+      "numeral": "I",
+      "title": "A website in a day",
+      "when": "The launch",
+      "body": [
+        "The brief was simple. The deadline was not. In a single day we shaped the positioning, wrote the copy, designed the site and built it, ready for the firm's first introductions.",
+        "The result reads like an institution that has been doing this for years, which is rather the point."
+      ],
+      "deliverables": [
+        "Positioning",
+        "Copywriting",
+        "Website design",
+        "Development and launch"
+      ]
+    },
+    {
+      "numeral": "II",
+      "title": "On retainer",
+      "when": "Ongoing",
+      "body": [
+        "Since launch we have remained on retainer as VESTRIUM goes to market, advising on operations, positioning and the way the firm wins its first clients.",
+        "The arrangement extends to VESTRIUM's own clients. Where an athlete or a business needs its operations put in order or its brand built properly, we advise them directly, as part of the VESTRIUM bench."
+      ],
+      "deliverables": [
+        "Go-to-market strategy",
+        "Operations advisory",
+        "Brand building",
+        "Client advisory"
+      ],
+      "roadmap_label": "How the retainer works",
+      "roadmap": [
+        {"kicker": "Launch", "title": "Online in a day", "text": "A finished website, ready for the firm's first introductions."},
+        {"kicker": "Go to market", "title": "The first clients", "text": "Positioning, offer and outreach, refined as the market responds."},
+        {"kicker": "Operations", "title": "A firm that runs well", "text": "Structure, systems and process for a business built to last."},
+        {"kicker": "Client advisory", "title": "Alongside their clients", "text": "Operations and brand-building advice for the athletes and businesses VESTRIUM represents."}
+      ]
+    }
+  ],
+  "closing": {
+    "label": "So far",
+    "right": "In progress",
+    "text": "VESTRIUM Global went live in a day and has been building ever since. The story is still being written, and we are rather enjoying the writing."
+  },
+  "next": {
+    "label": "Next case study",
+    "title": "Closet Fairy Styling",
+    "note": "In preparation",
+    "href": "../index.html#work"
+  },
+  "layout": "stacked",
+  "role": "Website partner and retained adviser"
+}
