@@ -1,6 +1,6 @@
 {
   "slug": "vestrium-global",
-  "number": "03",
+  "number": "04",
   "client": "VESTRIUM Global",
   "wordmark": "VESTRIUM GLOBAL",
   "sector": "Sport and business advisory",
@@ -59,10 +59,26 @@
       ],
       "roadmap_label": "How the retainer works",
       "roadmap": [
-        {"kicker": "Launch", "title": "Online in a day", "text": "A finished website, ready for the firm's first introductions."},
-        {"kicker": "Go to market", "title": "The first clients", "text": "Positioning, offer and outreach, refined as the market responds."},
-        {"kicker": "Operations", "title": "A firm that runs well", "text": "Structure, systems and process for a business built to last."},
-        {"kicker": "Client advisory", "title": "Alongside their clients", "text": "Operations and brand-building advice for the athletes and businesses VESTRIUM represents."}
+        {
+          "kicker": "Launch",
+          "title": "Online in a day",
+          "text": "A finished website, ready for the firm's first introductions."
+        },
+        {
+          "kicker": "Go to market",
+          "title": "The first clients",
+          "text": "Positioning, offer and outreach, refined as the market responds."
+        },
+        {
+          "kicker": "Operations",
+          "title": "A firm that runs well",
+          "text": "Structure, systems and process for a business built to last."
+        },
+        {
+          "kicker": "Client advisory",
+          "title": "Alongside their clients",
+          "text": "Operations and brand-building advice for the athletes and businesses VESTRIUM represents."
+        }
       ]
     }
   ],
@@ -73,7 +89,7 @@
   },
   "next": {
     "label": "Next case study",
-    "title": "Closet Fairy Styling",
+    "title": "Luxe Assist AI",
     "note": "In preparation",
     "href": "../index.html#work"
   },
