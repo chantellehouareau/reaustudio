@@ -270,46 +270,52 @@
       "role": "Aesthetic dentist",
       "followers": "638K",
       "file": "partner-apa.jpg",
+      "about": "One of the most recognised names in aesthetic dentistry, with studios in New York, Los Angeles, Miami and Dubai.",
       "bio": "Collaborations, an office visit, and the introductions that saw his offices stocked with Power Dental Group crown removers."
     },
     {
-      "name": "Dr Melanie Silvestrini",
+      "name": "Dr Melanie Silvestrini, DMD, FICOI",
       "role": "Aesthetic and implant dentist",
       "followers": "85.6K",
       "file": "partner-melanie.jpg",
+      "about": "A Tufts-trained aesthetic and implant dentist in New York and Miami, a speaker and the host of Dental Talk 360.",
       "bio": "Influencer relations: PR send-outs and collaborative content, managed from first contact to final post."
     },
     {
-      "name": "Razel",
-      "role": "Dental student and creator",
+      "name": "Dr Razel Zapanta, DMD",
+      "role": "Dentist and creator",
       "followers": "55.1K",
       "file": "partner-razel.jpg",
-      "bio": "Influencer relations: PR send-outs and collaborative content, managed from first contact to final post."
+      "about": "A graduate of the Arizona School of Dentistry and Oral Health, sharing life in dentistry with a devoted following.",
+      "bio": "PR send-outs and collaborative content, with the relationship looked after throughout."
     },
     {
       "name": "Dr David Wong",
       "role": "Periodontist and brand ambassador",
       "followers": "30.6K",
       "file": "partner-wong.jpg",
+      "about": "A periodontist, author and speaker since 2003, practising across Tulsa, Houston and New York, and featured in Fox News and the Wall Street Journal.",
       "bio": "Power Dental Group's ambassador. We built the beginnings of the ambassador programme around him, alongside PR and content."
     },
     {
-      "name": "Dr Sinada",
-      "role": "Clinician partner",
-      "file": "pdg partner dr sinada.jpg",
+      "name": "Dr Naif Sinada, DMD, MS",
+      "role": "Prosthodontist",
+      "file": "partner-sinada.jpg",
+      "about": "A prosthodontist and clinical educator whose teaching centres on surgical and prosthetic innovation in digital dentistry.",
       "bio": "PR, and the first conversations towards designing his own instrument line with Power Dental Group."
     },
     {
       "name": "Dr Lulu Tang",
-      "role": "Clinician partner",
-      "file": "pdg partner dr lulu tang.jpg",
+      "role": "Dentist and practice owner",
+      "file": "partner-lulu.jpg",
+      "about": "A Las Vegas dentist and the owner of Sahara Modern Dentistry, trained at Oregon Health and Science University.",
       "bio": "A paid partnership, with influencer relations and PR handled throughout."
     },
     {
       "name": "Misch Implant Institute",
       "role": "Education partner",
-      "followers": "",
       "file": "partner-misch.jpg",
+      "about": "Globally recognised dental implant training, now in its fifth decade.",
       "bio": "Power Dental Group is an official sponsor. REAU Studio directed and co-produced the collaborative reels and a collaborative kit."
     }
   ],

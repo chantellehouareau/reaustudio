@@ -314,8 +314,10 @@ figcaption{color:var(--mute)}
 .partner .label{color:var(--mute);display:block;margin-top:6px}
 .r-11{aspect-ratio:1/1}
 .partner .frame{border-radius:50%;overflow:hidden;max-width:240px}
-.partner .frame img{transform:scale(1.14)}
-.partner .bio{margin-top:12px;font-size:.95rem;line-height:1.55;color:var(--ink-2);max-width:24em}
+
+.partner .about{margin-top:12px;font-size:.95rem;line-height:1.55;color:var(--ink-2);max-width:24em}
+.partner .bio{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:.92rem;line-height:1.55;color:var(--mute);max-width:24em}
+.partner .bio .label{display:block;margin:0 0 6px;color:var(--ink)}
 .partners{grid-template-columns:repeat(4,minmax(0,1fr))!important}
 @media (max-width:900px){.partners{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media (max-width:600px){.partners{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -478,7 +480,7 @@ def build(path):
     if d.get("partners"):
         body.append(f'<section class="sec wrap">{shead(d.get("partners_label","Partners"), "In good company")}' +
                     (f'<p class="p-note">{E(d["partners_note"])}</p>' if d.get("partners_note") else "") +
-                    '<div class="partners">' + "".join(f'<figure class="partner">{media(slug,{"file":p["file"],"label":"Portrait","alt":p["name"]},"r-11")}<h3>{E(p["name"])}</h3><span class="label">{E(p["role"])}{(" · " + E(p["followers"]) + " followers") if p.get("followers") else ""}</span>' + (f'<p class="bio">{E(p["bio"])}</p>' if p.get("bio") else "") + '</figure>' for p in d["partners"]) + '</div></section>')
+                    '<div class="partners">' + "".join(f'<figure class="partner">{media(slug,{"file":p["file"],"label":"Portrait","alt":p["name"]},"r-11")}<h3>{E(p["name"])}</h3><span class="label">{E(p["role"])}{(" · " + E(p["followers"]) + " followers") if p.get("followers") else ""}</span>' + (f'<p class="about">{E(p["about"])}</p>' if p.get("about") else "") + (f'<p class="bio"><span class="label">Our work</span>{E(p["bio"])}</p>' if p.get("bio") else "") + '</figure>' for p in d["partners"]) + '</div></section>')
     q = d.get("quote") or {}
     if q.get("name"):
         if q.get("text"):
