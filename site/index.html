@@ -638,14 +638,22 @@ html.intro-on .hero .wordmark .ch,html.intro-on .hero-top,html.intro-on .ctas,ht
 
   // Process: pinned; each stage takes the stage in turn as you scroll.
   var how=document.getElementById('process'), stg=[].slice.call(document.querySelectorAll('.stage')), pd=[].slice.call(document.querySelectorAll('.prog .d')), pf=document.getElementById('progFill'), cur=-1;
-  function onSteps(){
-    var r=how.getBoundingClientRect(), total=how.offsetHeight-innerHeight, p=total>0?Math.max(0,Math.min(1,-r.top/total)):0;
-    var i=Math.min(stg.length-1,Math.floor(p*stg.length));
-    if(i===cur)return; cur=i;
+  // Never skip a stage: if the scroll jumps ahead, step through the missed ones one at a time
+  var want=0,stepT=null;
+  function show(i){cur=i;
     stg.forEach(function(s,k){s.classList.toggle('on',k===i);s.classList.toggle('past',k<i);});
     pd.forEach(function(d,k){d.classList.toggle('on',k<=i);});
-    pf.style.width=(i/(stg.length-1)*100)+'%';
+    pf.style.width=(i/(stg.length-1)*100)+'%';}
+  function walk(){stepT=null;if(cur===want)return;show(cur+(want>cur?1:-1));if(cur!==want)stepT=setTimeout(walk,reduce?0:420);}
+  function onSteps(){
+    var r=how.getBoundingClientRect(), total=how.offsetHeight-innerHeight, p=total>0?Math.max(0,Math.min(1,-r.top/total)):0;
+    // the last stage gets its share before the section releases, not after
+    want=Math.min(stg.length-1,Math.floor(p*stg.length*1.08));
+    if(cur<0){show(want);return;}
+    if(want!==cur&&!stepT)walk();
   }
+  // keep checking every frame while the section is on screen (some phones send scroll events sparingly)
+  (function tick(){var r=how.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)onSteps();requestAnimationFrame(tick);})();
 
   // Header: frosted, switches to dark over dark sections, tucks away while scrolling down.
   var hdr=document.querySelector('.hdr'), darks=[].slice.call(document.querySelectorAll('[data-dark]')), lastY=scrollY;
