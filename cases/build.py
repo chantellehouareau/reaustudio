@@ -232,7 +232,11 @@ figcaption{color:var(--mute)}
 .ba .layer>*{width:100%;height:100%}
 .ba .before{clip-path:inset(0 calc(100% - var(--x)) 0 0)}
 .ba .before .ph{background:#E2E1DC}
-.ba .tag{position:absolute;top:14px;z-index:2;background:var(--paper);border-radius:999px;padding:6px 12px;pointer-events:none}
+.ba .tag{position:absolute;top:14px;z-index:4;background:var(--paper);color:var(--ink);border:1px solid var(--paper);border-radius:999px;padding:7px 14px;cursor:pointer;font:inherit;font-size:.68rem;letter-spacing:.16em;transition:background .35s var(--ease),color .35s var(--ease),border-color .35s}
+.ba .tag:hover{border-color:var(--ink)}
+.ba .tag.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ba img{-webkit-user-drag:none;user-select:none;pointer-events:none}
+.ba.glide .before{transition:clip-path .7s var(--ease)}.ba.glide .handle{transition:left .7s var(--ease)}
 .ba .tag.b{left:14px}.ba .tag.a{right:14px}
 .ba .handle{position:absolute;top:0;bottom:0;left:var(--x);width:1px;background:var(--ink);z-index:3;pointer-events:none}
 .ba .knob{position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:var(--paper);border:1px solid var(--ink);display:grid;place-items:center;font-size:1.1rem}
@@ -253,6 +257,13 @@ figcaption{color:var(--mute)}
 .row-nav button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--ink);cursor:pointer;font-size:.95rem;transition:background .3s,color .3s,border-color .3s}
 .row-nav button:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 
+/* reel player */
+.rmodal{position:fixed;inset:0;z-index:90;background:rgba(11,11,11,.86);display:grid;place-items:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility 0s .4s}
+.rmodal.on{opacity:1;visibility:visible;transition:opacity .4s var(--ease)}
+.rmodal .rbox{position:relative;width:min(400px,92vw);height:min(720px,86vh);background:#fff;border-radius:10px;overflow:hidden}
+.rmodal iframe{width:100%;height:100%;border:0;display:block}
+.rmodal .rx{position:absolute;top:18px;right:22px;background:none;border:1px solid rgba(251,251,249,.4);color:var(--paper);border-radius:999px;padding:8px 16px;font:500 .78rem var(--sans);cursor:pointer}
+.rmodal .rx:hover{border-color:var(--paper)}
 /* reels */
 .reels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,28px)}
 .reel{text-decoration:none;display:flex;flex-direction:column;gap:14px}
@@ -304,7 +315,7 @@ figcaption{color:var(--mute)}
 .r-11{aspect-ratio:1/1}
 .partner .frame{border-radius:50%;overflow:hidden;max-width:240px}
 .partner .frame img{transform:scale(1.14)}
-.partner .fol{display:block;margin-top:8px;font-family:var(--sans);font-size:1.4rem;letter-spacing:-.02em}.partner .fol small{font-size:.8rem;letter-spacing:0;color:var(--mute)}
+.partner .bio{margin-top:12px;font-size:.95rem;line-height:1.55;color:var(--ink-2);max-width:24em}
 .partners{grid-template-columns:repeat(4,minmax(0,1fr))!important}
 @media (max-width:900px){.partners{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media (max-width:600px){.partners{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -339,6 +350,10 @@ def media(slug, item, ratio, cls="frame"):
 def shead(l, r=""):
     return f'<div class="shead"><span class="label">{E(l)}</span><span class="label r">{E(r)}</span></div>'
 
+def reel_attr(u):
+    m = re.search(r'instagram\.com/(?:reel|p)/([A-Za-z0-9_-]+)', u or '')
+    return f' data-reel="{m.group(1)}"' if m else ''
+
 PLAY = '<svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0l10 6-10 6z"/></svg>'
 
 
@@ -358,10 +373,10 @@ def chapter(slug, c, idx, layout=""):
         out.append(f'''<div><div class="ba" data-ba{f' style="aspect-ratio:{bar};max-width:{c["beforeafter"].get("max","100%")}"' if bar else ""}>
   <div class="layer">{media(slug,a,"",cls="frame")}</div>
   <div class="layer before">{media(slug,b,"",cls="frame")}</div>
-  <span class="tag b label">{E(b.get("label","Before"))}</span><span class="tag a label">{E(a.get("label","After"))}</span>
+  <button type="button" class="tag b label" data-to="100">{E(b.get("label","Before"))}</button><button type="button" class="tag a label" data-to="0">{E(a.get("label","After"))}</button>
   <input type="range" min="0" max="100" value="50" aria-label="Compare before and after">
   <div class="handle"><span class="knob" aria-hidden="true">‹ ›</span></div>
-</div><p class="ba-hint label">Drag to compare</p></div>''')
+</div><p class="ba-hint label">Drag to compare, or choose before or after</p></div>''')
     if c.get("stages"):
         out.append(f'<div><p class="stages-h label">{E(c.get("stages_label","The process"))}</p><div class="stages">' + "".join(
             f'<figure>{media(slug,p,"r-45")}<figcaption class="label"><b>{i+1:02d}</b>{E(p["label"])}</figcaption></figure>' for i,p in enumerate(c["stages"])) + '</div></div>')
@@ -412,8 +427,8 @@ def chapter(slug, c, idx, layout=""):
                    f'</div><div class="row-nav"><span class="label">Swipe to see more</span><span class="btns"><button type="button" data-row="{rid}" data-dir="-1" aria-label="Previous">←</button><button type="button" data-row="{rid}" data-dir="1" aria-label="Next">→</button></span></div></div>')
     if c.get("reels"):
         out.append('<div class="reels">' + "".join(
-            f'<a class="reel" href="{E(r["url"])}" target="_blank" rel="noopener"><div style="position:relative">{media(slug,{"file":r["file"],"label":"Reel cover","alt":r["title"]},"r-916")}<span class="rk label">{E(r["kicker"])}</span><span class="play">{PLAY}</span></div>'
-            f'<h3>{E(r["title"])}</h3><p>{E(r["text"])}</p><span class="go">Watch on Instagram <span>↗</span></span></a>'
+            f'<a class="reel" href="{E(r["url"])}" target="_blank" rel="noopener"{reel_attr(r["url"])}><div style="position:relative">{media(slug,{"file":r["file"],"label":"Reel cover","alt":r["title"]},"r-916")}<span class="rk label">{E(r["kicker"])}</span><span class="play">{PLAY}</span></div>'
+            f'<h3>{E(r["title"])}</h3><p>{E(r["text"])}</p><span class="go">{"Play here" if reel_attr(r["url"]) else "Watch on Instagram"} <span>↗</span></span></a>'
             for r in c["reels"]) + '</div>')
     if c.get("chart"):
         ch = c["chart"]
@@ -463,7 +478,7 @@ def build(path):
     if d.get("partners"):
         body.append(f'<section class="sec wrap">{shead(d.get("partners_label","Partners"), "In good company")}' +
                     (f'<p class="p-note">{E(d["partners_note"])}</p>' if d.get("partners_note") else "") +
-                    '<div class="partners">' + "".join(f'<figure class="partner">{media(slug,{"file":p["file"],"label":"Portrait","alt":p["name"]},"r-11")}<h3>{E(p["name"])}</h3><span class="label">{E(p["role"])}</span>' + (f'<span class="fol">{E(p["followers"])} <small>followers</small></span>' if p.get("followers") else "") + '</figure>' for p in d["partners"]) + '</div></section>')
+                    '<div class="partners">' + "".join(f'<figure class="partner">{media(slug,{"file":p["file"],"label":"Portrait","alt":p["name"]},"r-11")}<h3>{E(p["name"])}</h3><span class="label">{E(p["role"])}{(" · " + E(p["followers"]) + " followers") if p.get("followers") else ""}</span>' + (f'<p class="bio">{E(p["bio"])}</p>' if p.get("bio") else "") + '</figure>' for p in d["partners"]) + '</div></section>')
     q = d.get("quote") or {}
     if q.get("name"):
         if q.get("text"):
@@ -593,14 +608,29 @@ TEMPLATE = r"""<!doctype html>
   // Before / after: drag anywhere on the image (mouse or finger); arrow keys via the slider
   $$('[data-ba]').forEach(function(ba){
     var input=$('input',ba),drag=false;
-    function set(pct){pct=Math.max(0,Math.min(100,pct));ba.style.setProperty('--x',pct+'%');input.value=pct;}
+    var tags=$$('.tag',ba);
+    function set(pct){pct=Math.max(0,Math.min(100,pct));ba.style.setProperty('--x',pct+'%');input.value=pct;tags.forEach(function(g){g.classList.toggle('on',(+g.dataset.to)===Math.round(pct));});}
     function fromEvt(e){var r=ba.getBoundingClientRect();set((e.clientX-r.left)/r.width*100);}
-    ba.addEventListener('pointerdown',function(e){drag=true;ba.setPointerCapture(e.pointerId);fromEvt(e);});
+    $$('img',ba).forEach(function(i){i.draggable=false;});
+    ba.addEventListener('dragstart',function(e){e.preventDefault();});
+    tags.forEach(function(g){g.addEventListener('pointerdown',function(e){e.stopPropagation();});g.addEventListener('click',function(e){e.stopPropagation();ba.classList.add('glide');set(+g.dataset.to);setTimeout(function(){ba.classList.remove('glide');},750);});});
+    ba.addEventListener('pointerdown',function(e){if(e.button>0)return;e.preventDefault();drag=true;ba.classList.remove('glide');ba.setPointerCapture(e.pointerId);fromEvt(e);});
     ba.addEventListener('pointermove',function(e){if(drag)fromEvt(e);});
     ba.addEventListener('pointerup',function(){drag=false;});ba.addEventListener('pointercancel',function(){drag=false;});
     ba.addEventListener('click',function(){input.focus({preventScroll:true});});
     input.addEventListener('input',function(){set(+input.value);});
   });
+
+  // Reels: play in a lightbox using Instagram's own embed
+  (function(){var rs=$$('[data-reel]');if(!rs.length)return;
+    var m=document.createElement('div');m.className='rmodal';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.setAttribute('aria-label','Instagram reel');
+    m.innerHTML='<button class="rx" type="button">Close</button><div class="rbox"></div>';document.body.appendChild(m);
+    var box=$('.rbox',m),last=null;
+    function close(){m.classList.remove('on');setTimeout(function(){box.innerHTML='';},400);if(last)last.focus();}
+    rs.forEach(function(a){a.addEventListener('click',function(e){if(e.metaKey||e.ctrlKey)return;e.preventDefault();last=a;box.innerHTML='<iframe src="https://www.instagram.com/reel/'+a.dataset.reel+'/embed/" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Instagram reel"></iframe>';m.classList.add('on');$('.rx',m).focus();});});
+    $('.rx',m).addEventListener('click',close);m.addEventListener('click',function(e){if(e.target===m)close();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('on'))close();});
+  })();
 
   // Swipe rows: arrow buttons
   $$('[data-row]').forEach(function(b){b.addEventListener('click',function(){var row=document.getElementById(b.dataset.row),c=row.firstElementChild;row.scrollBy({left:(+b.dataset.dir)*(c.offsetWidth+16)*2,behavior:reduce?'auto':'smooth'});});});

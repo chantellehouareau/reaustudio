@@ -125,34 +125,69 @@
       ],
       "row": [
         {
-          "file": "story-1.jpg",
+          "file": "story-01.jpg",
           "label": "Story",
-          "alt": "Instagram story design"
+          "alt": "Instagram story: The Power Crown Remover"
         },
         {
-          "file": "story-2.jpg",
+          "file": "story-02.jpg",
           "label": "Story",
-          "alt": "Instagram story design"
+          "alt": "Instagram story: The Power Crown Remover"
         },
         {
-          "file": "story-3.jpg",
+          "file": "story-03.jpg",
           "label": "Story",
-          "alt": "Instagram story design"
+          "alt": "Instagram story: Powerflex Luxators"
         },
         {
-          "file": "story-4.jpg",
+          "file": "story-00.jpg",
+          "label": "On set",
+          "alt": "A clinician wearing the Dr Kim Headlamp"
+        },
+        {
+          "file": "story-04.jpg",
           "label": "Story",
-          "alt": "Instagram story design"
+          "alt": "Instagram story: Dr Kim Headlamp"
         },
         {
-          "file": "grid-1.jpg",
-          "label": "Feed",
-          "alt": "Refreshed Instagram feed"
+          "file": "story-05.jpg",
+          "label": "Story",
+          "alt": "Instagram story: Dr Kim Headlamp"
         },
         {
-          "file": "grid-2.jpg",
-          "label": "Feed",
-          "alt": "Refreshed Instagram feed"
+          "file": "story-06.jpg",
+          "label": "Story",
+          "alt": "Instagram story: Dr Kim Headlamp"
+        },
+        {
+          "file": "story-07.jpg",
+          "label": "Story",
+          "alt": "Instagram story: Sever and remove"
+        },
+        {
+          "file": "story-08.jpg",
+          "label": "Story",
+          "alt": "Instagram story: Twist Elevators and Periotomes"
+        },
+        {
+          "file": "story-09.jpg",
+          "label": "Story",
+          "alt": "Instagram story: Power Fulcrum Forceps"
+        },
+        {
+          "file": "story-10.jpg",
+          "label": "Story",
+          "alt": "Instagram story: Power Fulcrum Forceps"
+        },
+        {
+          "file": "story-11.jpg",
+          "label": "Story",
+          "alt": "Instagram story: Twist Elevators and Periotomes"
+        },
+        {
+          "file": "story-12.jpg",
+          "label": "Story",
+          "alt": "Instagram story: Twist Elevators and Periotomes"
         }
       ],
       "aside": [
@@ -207,32 +242,24 @@
           "file": "reel-in-practice.jpg"
         }
       ],
-      "chart": {
-        "title": "Instagram followers",
-        "points": [
-          {
-            "x": 0,
-            "y": 400,
-            "label": "Where we began",
-            "tick": "Start"
-          },
-          {
-            "x": 9,
-            "y": 4500,
-            "label": "The new series launch, Q2 2025",
-            "tick": "Q2 2025"
-          },
-          {
-            "x": 18,
-            "y": 48400,
-            "label": "Close of 2025",
-            "tick": "End of 2025"
-          }
-        ],
-        "ymax": 50000,
-        "xmax": 18,
-        "note": "Nine months to set the foundations. Nine more to lead the category."
-      }
+      "aside": [
+        {
+          "value": "48,400",
+          "label": "Instagram followers by the close of 2025, up from 400 at the start"
+        },
+        {
+          "value": "+10,000",
+          "label": "New followers on TikTok"
+        },
+        {
+          "value": "+5,000",
+          "label": "New subscribers on YouTube"
+        },
+        {
+          "value": "3",
+          "label": "Viral series, all still filmed today"
+        }
+      ]
     }
   ],
   "partners_label": "Partners",
@@ -242,48 +269,50 @@
       "name": "Dr Michael Apa",
       "role": "Aesthetic dentist",
       "followers": "638K",
-      "file": "partner-apa.jpg"
+      "file": "partner-apa.jpg",
+      "bio": "Collaborations, an office visit, and the introductions that saw his offices stocked with Power Dental Group crown removers."
     },
     {
       "name": "Dr Melanie Silvestrini",
       "role": "Aesthetic and implant dentist",
       "followers": "85.6K",
-      "file": "partner-melanie.jpg"
+      "file": "partner-melanie.jpg",
+      "bio": "Influencer relations: PR send-outs and collaborative content, managed from first contact to final post."
     },
     {
       "name": "Razel",
       "role": "Dental student and creator",
       "followers": "55.1K",
-      "file": "partner-razel.jpg"
+      "file": "partner-razel.jpg",
+      "bio": "Influencer relations: PR send-outs and collaborative content, managed from first contact to final post."
     },
     {
       "name": "Dr David Wong",
-      "role": "Periodontist, author and speaker",
+      "role": "Periodontist and brand ambassador",
       "followers": "30.6K",
-      "file": "partner-wong.jpg"
+      "file": "partner-wong.jpg",
+      "bio": "Power Dental Group's ambassador. We built the beginnings of the ambassador programme around him, alongside PR and content."
     },
     {
       "name": "Dr Sinada",
       "role": "Clinician partner",
-      "file": "pdg partner dr sinada.jpg"
+      "file": "pdg partner dr sinada.jpg",
+      "bio": "PR, and the first conversations towards designing his own instrument line with Power Dental Group."
     },
     {
       "name": "Dr Lulu Tang",
       "role": "Clinician partner",
-      "file": "pdg partner dr lulu tang.jpg"
+      "file": "pdg partner dr lulu tang.jpg",
+      "bio": "A paid partnership, with influencer relations and PR handled throughout."
     },
     {
       "name": "Misch Implant Institute",
       "role": "Education partner",
       "followers": "",
-      "file": "partner-misch.jpg"
+      "file": "partner-misch.jpg",
+      "bio": "Power Dental Group is an official sponsor. REAU Studio directed and co-produced the collaborative reels and a collaborative kit."
     }
   ],
-  "quote": {
-    "text": "",
-    "name": "Kyle Lim",
-    "role": "CEO, Power Dental Group"
-  },
   "closing": {
     "label": "The result",
     "right": "By the end of our time together",
