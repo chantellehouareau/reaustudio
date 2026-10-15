@@ -126,67 +126,30 @@
       "row": [
         {
           "file": "story-01.jpg",
-          "label": "Story",
           "alt": "Instagram story: The Power Crown Remover"
-        },
-        {
-          "file": "story-02.jpg",
-          "label": "Story",
-          "alt": "Instagram story: The Power Crown Remover"
-        },
-        {
-          "file": "story-03.jpg",
-          "label": "Story",
-          "alt": "Instagram story: Powerflex Luxators"
-        },
-        {
-          "file": "story-00.jpg",
-          "label": "On set",
-          "alt": "A clinician wearing the Dr Kim Headlamp"
-        },
-        {
-          "file": "story-04.jpg",
-          "label": "Story",
-          "alt": "Instagram story: Dr Kim Headlamp"
-        },
-        {
-          "file": "story-05.jpg",
-          "label": "Story",
-          "alt": "Instagram story: Dr Kim Headlamp"
-        },
-        {
-          "file": "story-06.jpg",
-          "label": "Story",
-          "alt": "Instagram story: Dr Kim Headlamp"
-        },
-        {
-          "file": "story-07.jpg",
-          "label": "Story",
-          "alt": "Instagram story: Sever and remove"
         },
         {
           "file": "story-08.jpg",
-          "label": "Story",
           "alt": "Instagram story: Twist Elevators and Periotomes"
         },
         {
-          "file": "story-09.jpg",
-          "label": "Story",
-          "alt": "Instagram story: Power Fulcrum Forceps"
+          "file": "story-05.jpg",
+          "alt": "Instagram story: Dr Kim Headlamp"
         },
         {
-          "file": "story-10.jpg",
-          "label": "Story",
-          "alt": "Instagram story: Power Fulcrum Forceps"
-        },
-        {
-          "file": "story-11.jpg",
-          "label": "Story",
-          "alt": "Instagram story: Twist Elevators and Periotomes"
+          "file": "story-00.jpg",
+          "alt": "Instagram story: A clinician wearing the Dr Kim Headlamp"
         },
         {
           "file": "story-12.jpg",
-          "label": "Story",
+          "alt": "Instagram story: Twist Elevators and Periotomes"
+        },
+        {
+          "file": "story-03.jpg",
+          "alt": "Instagram story: Powerflex Luxators"
+        },
+        {
+          "file": "story-11.jpg",
           "alt": "Instagram story: Twist Elevators and Periotomes"
         }
       ],

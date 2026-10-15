@@ -425,7 +425,7 @@ def chapter(slug, c, idx, layout=""):
         out.append(f'<div class="milestone"><div class="v">{E(m["from"])}<i aria-hidden="true">→</i>{E(m["to"])}</div><p class="l">{E(m["label"])}</p></div>')
     if c.get("row"):
         rid = f"row-{idx}"
-        out.append(f'<div class="rowwrap"><div class="row" id="{rid}">' + "".join(f'<figure>{media(slug,p,"r-916")}<figcaption class="label">{E(p["label"])}</figcaption></figure>' for p in c["row"]) +
+        out.append(f'<div class="rowwrap"><div class="row" id="{rid}">' + "".join(f'<figure>{media(slug,p,"r-916")}' + (f'<figcaption class="label">{E(p["label"])}</figcaption>' if p.get("label") else "") + '</figure>' for p in c["row"]) +
                    f'</div><div class="row-nav"><span class="label">Swipe to see more</span><span class="btns"><button type="button" data-row="{rid}" data-dir="-1" aria-label="Previous">←</button><button type="button" data-row="{rid}" data-dir="1" aria-label="Next">→</button></span></div></div>')
     if c.get("reels"):
         out.append('<div class="reels">' + "".join(
