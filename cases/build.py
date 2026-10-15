@@ -221,6 +221,7 @@ figcaption{color:var(--mute)}
 .milestone{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line);padding-top:20px}
 .milestone .v{font-family:var(--serif);font-size:clamp(3rem,7vw,6.4rem);line-height:.9;letter-spacing:-.02em}
 .milestone .v i{font-style:normal;color:var(--oxblood);margin-inline:.18em}
+.milestone .v i .ic{width:.7em;height:.7em;vertical-align:.02em}
 .milestone .l{color:var(--mute)}
 @media (max-width:860px){.ch-grid{grid-template-columns:minmax(0,1fr)}.ch-side{position:static}}
 
@@ -233,7 +234,8 @@ figcaption{color:var(--mute)}
 .ba .tag{position:absolute;top:14px;z-index:2;background:var(--paper);border-radius:999px;padding:6px 12px;pointer-events:none}
 .ba .tag.b{left:14px}.ba .tag.a{right:14px}
 .ba .handle{position:absolute;top:0;bottom:0;left:var(--x);width:1px;background:var(--ink);z-index:3;pointer-events:none}
-.ba .knob{position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:var(--paper);border:1px solid var(--ink);display:grid;place-items:center;font-size:.8rem;letter-spacing:.1em}
+.ba .knob{position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:var(--paper);border:1px solid var(--ink);display:grid;place-items:center;font-size:1.1rem}
+.ba .knob .ic{width:1.3em}
 .ba input{position:absolute;inset:auto 0 0 0;width:100%;opacity:0;height:1px;pointer-events:none}
 .ba input:focus-visible+.handle .knob{outline:2px solid var(--oxblood);outline-offset:3px}
 .ba-hint{color:var(--mute);margin-top:10px}
@@ -472,7 +474,7 @@ def build(path):
                    .replace("{{BODY}}", "\n\n".join(body)).replace("{{BODYCLASS}}", E(d.get("theme","")))
     os.makedirs(os.path.join(ROOT, "work"), exist_ok=True)
     out = os.path.join(ROOT, "work", slug + ".html")
-    open(out, "w").write(page)
+    open(out, "w").write(iconify(page))
     return out
 
 
@@ -669,6 +671,36 @@ TEMPLATE = r"""<!doctype html>
 """
 
 
+
+# ---------------------------------------------------------------- icons
+# Arrow characters render as emoji on some phones, so every arrow is drawn as a
+# thin line icon that takes the colour of the text around it.
+_P = 'fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"'
+ICONS = {
+    "↗": f'<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" {_P}/></svg>',
+    "→": f'<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" {_P}/></svg>',
+    "←": f'<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 8h-11M6.5 4l-4 4 4 4" {_P}/></svg>',
+    "‹ ›": f'<svg class="ic" viewBox="0 0 24 16" aria-hidden="true"><path d="M8 4L4 8l4 4M16 4l4 4-4 4" {_P}/></svg>',
+}
+ICON_CSS = ".ic{display:inline-block;width:.95em;height:.95em;vertical-align:-.12em;flex:none;overflow:visible}"
+
+def iconify(html_text):
+    for ch, svg in ICONS.items():
+        html_text = html_text.replace(ch, svg)
+    if ".ic{display:inline-block" not in html_text and "</style>" in html_text:
+        html_text = html_text.replace("</style>", ICON_CSS + "\n</style>", 1)
+    return html_text
+
+def iconify_static():
+    """Clean the hand-written pages too: the home page and the journal."""
+    done = []
+    for f in [os.path.join(ROOT, "index.html")] + sorted(glob.glob(os.path.join(ROOT, "journal", "*.html"))):
+        t = open(f, encoding="utf-8").read()
+        n = iconify(t)
+        if n != t:
+            open(f, "w", encoding="utf-8").write(n); done.append(os.path.relpath(f, ROOT))
+    return done
+
 # ---------------------------------------------------------------- consultation form
 CONSULT_CSS = r"""
 .consult{padding-top:calc(var(--hdr) + clamp(48px,7vw,110px));padding-bottom:clamp(80px,10vw,150px)}
@@ -837,10 +869,11 @@ def build_consult():
     page = page.replace('<a href="#inquire">Inquiries</a>', '<a href="index.html#inquire">Inquiries</a>')
     # the page itself is the call to action: drop the duplicate in the footer band
     page = re.sub(r'<a class="cta-big"[^>]*>.*?</a>', '', page, count=1, flags=re.S)
-    open(os.path.join(ROOT, "consultation.html"), "w").write(page)
+    open(os.path.join(ROOT, "consultation.html"), "w").write(iconify(page))
     return "consultation.html"
 
 if __name__ == "__main__":
-    for p in sorted(glob.glob(os.path.join(ROOT, "cases", "*.json"))):
+    for p in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), "*.json"))):
         print("built", build(p))
     print("built", build_consult())
+    for f in iconify_static(): print("cleaned", f)
