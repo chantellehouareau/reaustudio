@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>
+try{history.scrollRestoration='manual'}catch(e){}
+try{if(sessionStorage.getItem('rs-intro'))document.documentElement.classList.add('seen')}catch(e){}
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Considered advisory for ambitious companies. REAU Studio advises founders and leadership teams on growth, strategy, operations, technology and creative direction.">
 <meta property="og:title" content="REAU Studio | Advisory &amp; Consulting Studio">
@@ -281,19 +285,82 @@ p{margin:0}
 
 /* who we work with */
 .who{padding-bottom:clamp(40px,5vw,72px)}
-.whos{list-style:none;padding:0;margin:0}
-.whos li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) minmax(0,2.4fr);gap:clamp(16px,3vw,48px);align-items:baseline;padding-block:clamp(20px,2.4vw,30px);border-bottom:1px solid var(--line)}
-.whos li:first-child{padding-top:0}
-.whos h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,2.6vw,2.4rem);line-height:1.05}
-.whos p{color:var(--mute);line-height:1.6;max-width:34em}
-.whos .more{justify-self:end;text-decoration:none;color:var(--ink);display:inline-flex;gap:8px;align-items:center;white-space:nowrap;transition:color .3s}
+.whos{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.4vw,20px)}
+.whos li{position:relative;display:flex;flex-direction:column;gap:18px;min-height:clamp(240px,22vw,300px);padding:clamp(20px,2vw,28px);border:1px solid var(--line);border-radius:6px;background:var(--paper);transition:background .5s var(--ease),color .5s var(--ease),border-color .5s var(--ease),transform .6s var(--ease)}
+.whos .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.whos .pill{display:inline-block;font-family:var(--sans);font-size:.9rem;font-weight:500;letter-spacing:0;line-height:1.2;padding:9px 16px;border:1px solid var(--ink);border-radius:999px;transition:border-color .5s var(--ease)}
+.whos .n{color:var(--mute);transition:color .5s var(--ease)}
+.whos p{color:var(--mute);line-height:1.6;flex:1;transition:color .5s var(--ease)}
+.whos .more{align-self:flex-start;text-decoration:none;color:inherit;display:inline-flex;gap:8px;align-items:center;white-space:nowrap}
+.whos .more::after{content:"";position:absolute;inset:0;border-radius:6px}
 .whos .more .ic{transition:transform .4s var(--ease)}
-.whos .more:hover{color:var(--oxblood)}
-.whos .more:hover .ic{transform:translateX(3px)}
-@media (max-width:900px){.whos li{grid-template-columns:minmax(0,1fr);gap:10px}.whos .more{justify-self:start;margin-top:4px}.whos li>span:empty{display:none}}
+.whos li:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);transform:translateY(-4px)}
+.whos li:hover .pill{border-color:var(--paper)}
+.whos li:hover p,.whos li:hover .n{color:rgba(247,246,242,.68)}
+.whos li:hover .more .ic{transform:translateX(4px)}
+@media (max-width:1000px){.whos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.whos{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:82%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:calc(var(--gutter) * -1);padding:4px var(--gutter) 8px;scroll-padding-inline:var(--gutter)}.whos::-webkit-scrollbar{display:none}.whos li{scroll-snap-align:start;min-height:280px}.whos li:hover{transform:none}}
+
+/* loading screen */
+#intro{position:fixed;inset:0;z-index:300;background:#0B0B0B;color:#F7F6F2;display:grid;place-items:center;transition:transform 1.1s cubic-bezier(.76,0,.24,1)}
+html.seen #intro{display:none}
+html.intro-on{overflow:hidden}
+html.intro-on .hero .wordmark .ch,html.intro-on .hero-top,html.intro-on .ctas,html.intro-on .hero-sub p{animation-play-state:paused}
+#intro .iw{width:min(58vw,400px)}
+#intro .rs{display:block;width:100%;height:auto;clip-path:inset(0 100% 0 0);animation:rsWipe 1.1s cubic-bezier(.76,0,.24,1) .15s forwards}
+@keyframes rsWipe{to{clip-path:inset(0 0 0 0)}}
+#intro .run{position:relative;height:40px;margin-top:clamp(30px,5vw,52px)}
+#intro .track{position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(247,246,242,.16)}
+#intro .fill{position:absolute;left:0;top:0;bottom:0;width:0;background:#F7F6F2}
+#intro .dog{position:absolute;bottom:1px;left:0;width:60px;height:34px;transform:translateX(-50%)}
+#intro .dog img{position:absolute;bottom:0;left:50%;width:auto;max-width:none;transform:translateX(-50%) scaleX(-1);opacity:0;filter:invert(1)}
+#intro .dog img.on{opacity:1}
+#intro .dog img[data-f="0"]{height:34px}#intro .dog img[data-f="1"]{height:24px}#intro .dog img[data-f="2"]{height:29px}#intro .dog img[data-f="3"]{height:21px}
+#intro .count{display:flex;justify-content:space-between;margin-top:16px;font-size:.66rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,246,242,.5);font-variant-numeric:tabular-nums}
+#intro.out{transform:translateY(-100%)}
+#intro.gone{display:none}
+@media (prefers-reduced-motion:reduce){#intro .rs{animation:none;clip-path:none}#intro{transition:opacity .4s}#intro.out{transform:none;opacity:0}}
 </style>
 </head>
 <body>
+<div id="intro" aria-hidden="true">
+  <div class="iw">
+    <img class="rs" src="assets/rs-white.png" alt="">
+    <div class="run"><span class="track"><span class="fill"></span></span><span class="dog"><img src="assets/dog-0.png" data-f="0" alt="" class="on"><img src="assets/dog-1.png" data-f="1" alt=""><img src="assets/dog-2.png" data-f="2" alt=""><img src="assets/dog-3.png" data-f="3" alt=""></span></div>
+    <div class="count"><span>REAU Studio</span><span id="ic">000</span></div>
+  </div>
+</div>
+<script>
+(function(){
+  var de=document.documentElement,el=document.getElementById('intro');
+  if(!location.hash)window.scrollTo({top:0,behavior:'instant'});
+  addEventListener('load',function(){if(!location.hash)window.scrollTo({top:0,behavior:'instant'});});
+  if(!el)return;
+  if(de.classList.contains('seen')){el.parentNode.removeChild(el);return;}
+  de.classList.add('intro-on');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var imgs=el.querySelectorAll('.dog img'),fill=el.querySelector('.fill'),dog=el.querySelector('.dog'),ic=document.getElementById('ic');
+  var D=reduce?400:1700,DELAY=reduce?0:350,t0=null,f=0,lf=0,done=false;
+  function frame(n){for(var i=0;i<imgs.length;i++)imgs[i].classList.toggle('on',i===n);}
+  function step(t){
+    if(t0===null)t0=t+DELAY;
+    var p=Math.max(0,Math.min(1,(t-t0)/D)),e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+    fill.style.width=(e*100)+'%';dog.style.left=(e*100)+'%';ic.textContent=('00'+Math.round(e*100)).slice(-3);
+    if(p>0&&p<1&&!reduce&&t-lf>85){f=f%3+1;frame(f);lf=t;}
+    if(p<1)requestAnimationFrame(step);else finish();
+  }
+  function finish(){
+    if(done)return;done=true;frame(0);
+    setTimeout(function(){
+      el.classList.add('out');de.classList.remove('intro-on');
+      try{sessionStorage.setItem('rs-intro','1')}catch(e){}
+      setTimeout(function(){el.classList.add('gone')},1200);
+    },reduce?100:380);
+  }
+  requestAnimationFrame(step);
+  setTimeout(finish,4500);
+})();
+</script>
 
 <header class="hdr">
   <div class="hdr-in wrap">
@@ -336,12 +403,12 @@ p{margin:0}
 <section class="who wrap" id="who">
   <div class="shead"><span class="label">Who we work with</span><span class="label r">And why they call</span></div>
   <ul class="whos">
-    <li><h3>Start-ups</h3><p>When the idea is ready and the business around it is not quite. We put the structure, brand and systems in place to carry it.</p><span></span></li>
-    <li><h3>Consultancies &amp; agencies</h3><p>Firms who advise for a living and appreciate a second opinion. We sharpen the offer, the positioning and the way new work is won.</p><span></span></li>
-    <li><h3>Professional services firms</h3><p>Accountants, advisers and specialists with reputations to keep. We modernise how they present, operate and grow, discreetly.</p><span></span></li>
-    <li><h3>Venture capital &amp; private equity</h3><p>Investors who would like their companies to perform. We work alongside the founders they back, as we do across the VIS10N portfolio.</p><a class="more label" href="work/vis10n-holdings.html">See VIS10N Holdings <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-    <li><h3>Established brands</h3><p>Companies with a fine product and a quiet reputation. Power Dental Group became the best-performing dental instrument manufacturer on the internet.</p><a class="more label" href="work/power-dental-group.html">See Power Dental Group <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-    <li><h3>Brand-led founders &amp; creators</h3><p>People whose name is the brand. We look after the business behind the following, from content to operations.</p><a class="more label" href="#clients">See our clients <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+    <li><div class="top"><h3 class="pill">Start-ups</h3><span class="n label">01</span></div><p>When the idea is ready and the business around it is not quite. We put the structure, brand and systems in place to carry it.</p><a class="more label" href="https://luxeassist.ai" target="_blank" rel="noopener">See Luxe Assist AI <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+    <li><div class="top"><h3 class="pill">Consultancies &amp; agencies</h3><span class="n label">02</span></div><p>Firms who advise for a living deserve to look as considered as their advice. We sharpen the offer, the positioning and the way new work is won.</p><a class="more label" href="https://vestriumglobal.com" target="_blank" rel="noopener">See VESTRIUM Global <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+    <li><div class="top"><h3 class="pill">Professional services firms</h3><span class="n label">03</span></div><p>Accountants, advisers and specialists with reputations to keep, among them RSM Eswatini and HLB Eswatini. We modernise how they present, operate and grow, discreetly.</p><a class="more label" href="https://www.rsm.global/eswatini/" target="_blank" rel="noopener">See RSM Eswatini <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+    <li><div class="top"><h3 class="pill">Venture capital &amp; private equity</h3><span class="n label">04</span></div><p>Investors who would like their companies to perform. We work alongside the founders they back, as we do across the VIS10N portfolio.</p><a class="more label" href="work/vis10n-holdings.html">See VIS10N Holdings <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+    <li><div class="top"><h3 class="pill">Growing enterprises</h3><span class="n label">05</span></div><p>Companies with a fine product and a quiet reputation. Power Dental Group became the best-performing dental instrument manufacturer on the internet.</p><a class="more label" href="work/power-dental-group.html">See Power Dental Group <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+    <li><div class="top"><h3 class="pill">Brand-led founders &amp; creators</h3><span class="n label">06</span></div><p>People whose name is the brand. We look after the business behind the following, from content to operations.</p><a class="more label" href="#clients">See more of our clients <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
   </ul>
 </section>
 
@@ -378,7 +445,7 @@ p{margin:0}
 
 <section class="clients sec wrap" id="clients">
   <div class="shead"><span class="label">Clients</span><span class="label r">Founders, athletes, firms &amp; public figures</span></div>
-  <p class="credits"><a class="f" href="https://powerdentalgroup.com" target="_blank" rel="noopener">Power Dental Group</a> <a class="f" href="https://luxeassist.ai" target="_blank" rel="noopener">Luxe Assist AI</a> <a class="f" href="https://vis10nholdings.com" target="_blank" rel="noopener">VIS10N Holdings</a> <a class="f" href="https://www.rsm.global/eswatini/" target="_blank" rel="noopener">RSM Eswatini</a> <a class="f" href="https://vestiumglobal.com" target="_blank" rel="noopener">VESTIUM Global</a> <span class="f">Axion RMS</span> <span class="f">Wardrobe Department</span> <span class="f">HLB Eswatini</span> <a class="f" href="https://closetfairy.com" target="_blank" rel="noopener">Closet Fairy Styling</a> <a class="r" href="https://www.instagram.com/rayjdennis10/" target="_blank" rel="noopener">RayJ Dennis</a> <a class="r" href="https://vanessafabila.com" target="_blank" rel="noopener">Vanessa Fabila</a> <a class="r" href="https://assemble.fyi" target="_blank" rel="noopener">Assemble</a> <a class="r" href="https://styledbydes.com" target="_blank" rel="noopener">Styled by Des</a> <a class="r" href="https://kmohaus.com" target="_blank" rel="noopener">KMO Haus</a> <a class="r" href="https://www.instagram.com/inkosazana_official/" target="_blank" rel="noopener">Inko Sazana</a> <a class="r" href="https://ver--ona.com" target="_blank" rel="noopener">VERONA</a> <a class="r" href="https://www.instagram.com/radiantlyrelaxed/" target="_blank" rel="noopener">Radiantly Relaxed</a> <a class="r" href="https://instagram.com/bestselfsara" target="_blank" rel="noopener">Best Self Sara</a> <a class="r" href="https://www.instagram.com/treyyrogersofficial/" target="_blank" rel="noopener">Trey Rogers</a> <a class="r" href="https://instagram.com/sonia.elyss" target="_blank" rel="noopener">Sonia Elyss</a> <a class="r" href="https://tiktok.com/@chaosinchicago" target="_blank" rel="noopener">Daily Dose of Chicago</a> <a class="r" href="https://instagram.com/bova.wilson" target="_blank" rel="noopener">Bova Wilson</a> <a class="r" href="https://instagram.com/msmilanzoe" target="_blank" rel="noopener">Milan Zoe</a> <span class="r">Queen Group Realtors</span> <a class="r" href="https://curlqueenofficial.com" target="_blank" rel="noopener">Curl Queen Official</a> <span class="r">Ekam Organics</span> <span class="r">Charlotte Clark</span> <a class="r" href="https://taylarcoyer.com" target="_blank" rel="noopener">Taylar Coyer</a><span class="r quiet-line">And a number of clients who prefer we keep things quiet</span></p>
+  <p class="credits"><a class="f" href="https://powerdentalgroup.com" target="_blank" rel="noopener">Power Dental Group</a> <a class="f" href="https://luxeassist.ai" target="_blank" rel="noopener">Luxe Assist AI</a> <a class="f" href="https://vis10nholdings.com" target="_blank" rel="noopener">VIS10N Holdings</a> <a class="f" href="https://www.rsm.global/eswatini/" target="_blank" rel="noopener">RSM Eswatini</a> <a class="f" href="https://vestriumglobal.com" target="_blank" rel="noopener">VESTRIUM Global</a> <span class="f">Axion RMS</span> <span class="f">Wardrobe Department</span> <span class="f">HLB Eswatini</span> <a class="f" href="https://closetfairy.com" target="_blank" rel="noopener">Closet Fairy Styling</a> <a class="r" href="https://www.instagram.com/rayjdennis10/" target="_blank" rel="noopener">RayJ Dennis</a> <a class="r" href="https://vanessafabila.com" target="_blank" rel="noopener">Vanessa Fabila</a> <a class="r" href="https://assemble.fyi" target="_blank" rel="noopener">Assemble</a> <a class="r" href="https://styledbydes.com" target="_blank" rel="noopener">Styled by Des</a> <a class="r" href="https://kmohaus.com" target="_blank" rel="noopener">KMO Haus</a> <a class="r" href="https://www.instagram.com/inkosazana_official/" target="_blank" rel="noopener">Inko Sazana</a> <a class="r" href="https://ver--ona.com" target="_blank" rel="noopener">VERONA</a> <a class="r" href="https://www.instagram.com/radiantlyrelaxed/" target="_blank" rel="noopener">Radiantly Relaxed</a> <a class="r" href="https://instagram.com/bestselfsara" target="_blank" rel="noopener">Best Self Sara</a> <a class="r" href="https://www.instagram.com/treyyrogersofficial/" target="_blank" rel="noopener">Trey Rogers</a> <a class="r" href="https://instagram.com/sonia.elyss" target="_blank" rel="noopener">Sonia Elyss</a> <a class="r" href="https://tiktok.com/@chaosinchicago" target="_blank" rel="noopener">Daily Dose of Chicago</a> <a class="r" href="https://instagram.com/bova.wilson" target="_blank" rel="noopener">Bova Wilson</a> <a class="r" href="https://instagram.com/msmilanzoe" target="_blank" rel="noopener">Milan Zoe</a> <span class="r">Queen Group Realtors</span> <a class="r" href="https://curlqueenofficial.com" target="_blank" rel="noopener">Curl Queen Official</a> <span class="r">Ekam Organics</span> <span class="r">Charlotte Clark</span> <a class="r" href="https://taylarcoyer.com" target="_blank" rel="noopener">Taylar Coyer</a><span class="r quiet-line">And a number of clients who prefer we keep things quiet</span></p>
 </section>
 
 <section class="sec wrap" id="services" style="padding-top:0">
