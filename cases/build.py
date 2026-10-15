@@ -265,7 +265,7 @@ figcaption{color:var(--mute)}
 .rmodal .rx{position:absolute;top:18px;right:22px;background:none;border:1px solid rgba(251,251,249,.4);color:var(--paper);border-radius:999px;padding:8px 16px;font:500 .78rem var(--sans);cursor:pointer}
 .rmodal .rx:hover{border-color:var(--paper)}
 /* reels */
-.reels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,28px)}
+.reels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:clamp(14px,2vw,28px)}
 .reel{text-decoration:none;display:flex;flex-direction:column;gap:14px}
 .reel .play{position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(251,251,249,.94);display:grid;place-items:center;z-index:2;transition:transform .6s var(--ease),background .4s,color .4s}
 .reel .play svg{width:14px;height:14px;margin-left:3px;fill:currentColor}
@@ -353,8 +353,8 @@ def shead(l, r=""):
     return f'<div class="shead"><span class="label">{E(l)}</span><span class="label r">{E(r)}</span></div>'
 
 def reel_attr(u):
-    m = re.search(r'instagram\.com/(?:reel|p)/([A-Za-z0-9_-]+)', u or '')
-    return f' data-reel="{m.group(1)}"' if m else ''
+    m = re.search(r'instagram\.com/(reel|p)/([A-Za-z0-9_-]+)', u or '')
+    return f' data-reel="{m.group(2)}" data-kind="{m.group(1)}"' if m else ''
 
 PLAY = '<svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0l10 6-10 6z"/></svg>'
 
@@ -629,7 +629,7 @@ TEMPLATE = r"""<!doctype html>
     m.innerHTML='<button class="rx" type="button">Close</button><div class="rbox"></div>';document.body.appendChild(m);
     var box=$('.rbox',m),last=null;
     function close(){m.classList.remove('on');setTimeout(function(){box.innerHTML='';},400);if(last)last.focus();}
-    rs.forEach(function(a){a.addEventListener('click',function(e){if(e.metaKey||e.ctrlKey)return;e.preventDefault();last=a;box.innerHTML='<iframe src="https://www.instagram.com/reel/'+a.dataset.reel+'/embed/" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Instagram reel"></iframe>';m.classList.add('on');$('.rx',m).focus();});});
+    rs.forEach(function(a){a.addEventListener('click',function(e){if(e.metaKey||e.ctrlKey)return;e.preventDefault();last=a;box.innerHTML='<iframe src="https://www.instagram.com/'+(a.dataset.kind||'reel')+'/'+a.dataset.reel+'/embed/" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Instagram reel"></iframe>';m.classList.add('on');$('.rx',m).focus();});});
     $('.rx',m).addEventListener('click',close);m.addEventListener('click',function(e){if(e.target===m)close();});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('on'))close();});
   })();
