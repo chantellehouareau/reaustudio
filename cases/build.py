@@ -502,9 +502,9 @@ TEMPLATE = r"""<!doctype html>
     <a class="mark" href="../index.html" aria-label="REAU Studio, home">REAU STUDIO</a>
     <nav class="nav" aria-label="Main">
       <a href="../index.html#begin">Begin</a>
-      <a href="../index.html#services">Services</a>
       <a href="../index.html#work" aria-current="page">Case Studies</a>
       <a href="../index.html#clients">Clients</a>
+      <a href="../index.html#services">Services</a>
       <a href="#inquire">Inquiries</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="sheet">Menu</button>
@@ -512,7 +512,7 @@ TEMPLATE = r"""<!doctype html>
 </header>
 <div class="sheet" id="sheet" hidden>
   <button id="menuClose">Close</button>
-  <a href="../index.html#begin">Begin</a><a href="../index.html#services">Services</a><a href="../index.html#work">Case Studies</a><a href="../index.html#clients">Clients</a><a href="#inquire">Inquiries</a>
+  <a href="../index.html#begin">Begin</a><a href="../index.html#work">Case Studies</a><a href="../index.html#clients">Clients</a><a href="../index.html#services">Services</a><a href="#inquire">Inquiries</a>
 </div>
 
 <main>
