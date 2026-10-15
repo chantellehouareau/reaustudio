@@ -317,6 +317,7 @@ figcaption{color:var(--mute)}
 .r-11{aspect-ratio:1/1}
 .partner .frame{border-radius:50%;overflow:hidden;max-width:240px}
 
+@supports (grid-template-rows:subgrid){.partners{row-gap:clamp(44px,5vw,72px)!important}.partner{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:0;margin:0}.partner h3{align-self:start;margin-top:18px}.partner .label{align-self:start}.partner .about{align-self:start}.partner .bio{align-self:start}}
 .partner .about{margin-top:12px;font-size:.95rem;line-height:1.55;color:var(--ink-2);max-width:24em}
 .partner .bio{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:.92rem;line-height:1.55;color:var(--mute);max-width:24em}
 .partner .bio .label{display:block;margin:0 0 6px;color:var(--ink)}
