@@ -17,13 +17,13 @@
   "glance": {
     "label": "At a glance",
     "right": "The short version",
-    "overview": "A clinical category, given a luxury point of view. A team, perfectly at ease on camera. And three content series the profession could not stop watching.",
+    "overview": "A clinical category, given a luxury point of view. A team, perfectly at ease on camera. And four content series the profession could not stop watching.",
     "wins_label": "Quick wins",
     "wins": [
       "A luxury-led digital identity that sets the brand apart from a clinical category",
       "A weekly filming rhythm, with the team media-trained and at ease on camera",
       "Instagram followers up more than elevenfold in the first nine months",
-      "Three viral content series from Q2 2025, which the team still films today",
+      "Four viral content series, from explainers to side-by-side comparisons, which the team still films today",
       "Partnerships with six respected clinicians and educators"
     ]
   },
@@ -173,7 +173,7 @@
       "title": "Finding the audience",
       "when": "Q2 2025",
       "body": [
-        "Then we raised the stakes. In Q2 2025 we ideated, introduced and directed three new content series. Each ran for around three months, each went viral, and the team still films all three today.",
+        "Then we raised the stakes. From Q2 2025 we ideated, introduced and directed four new content series: the explainers, the optic, the how-to and the comparison. Each went viral, and the team still films all four today.",
         "Alongside them we directed a run of mid-form vlogs. By the close of 2025 Instagram had reached 48,400 followers, with TikTok up 10,000 and YouTube up 5,000. No dental instrument manufacturer performed better online."
       ],
       "deliverables": [
@@ -226,7 +226,7 @@
           "label": "New subscribers on YouTube"
         },
         {
-          "value": "3",
+          "value": "4",
           "label": "Viral series, all still filmed today"
         }
       ]
