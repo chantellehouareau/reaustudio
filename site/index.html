@@ -101,7 +101,7 @@ p{margin:0}
 .runway .pos{position:absolute;bottom:6px;left:0}
 
 /* read-through statement */
-.read{padding-block:clamp(80px,11vw,160px) clamp(140px,18vw,260px)}
+.read{padding-block:clamp(80px,11vw,160px) clamp(100px,13vw,180px)}
 .readthru{font-family:var(--serif);font-size:clamp(2rem,4.2vw,4rem);line-height:1.1;letter-spacing:-.015em;max-width:21em;margin-left:auto;text-indent:clamp(0px,12vw,10rem)}
 
 .js .readthru .w{opacity:.18}
@@ -178,7 +178,7 @@ p{margin:0}
 @media (prefers-reduced-motion:reduce){.stage{transition:none;transform:none}}
 
 /* ---------- case studies (arched invitation cards) ---------- */
-.work{overflow:hidden;padding-block:clamp(110px,13vw,200px) clamp(150px,17vw,260px)}
+.work{overflow:hidden;padding-block:clamp(80px,10vw,140px) clamp(80px,10vw,140px)}
 .work .shead{margin-bottom:clamp(56px,7vw,110px)}
 .work-head{text-align:center;max-width:40rem;margin:0 auto clamp(48px,6vw,88px);display:flex;flex-direction:column;align-items:center;gap:18px}
 .work-head .label{color:var(--mute)}
@@ -279,15 +279,18 @@ p{margin:0}
 @media (prefers-reduced-motion:reduce){.hero .wordmark .ch,.hero-top,.ctas,.hero-sub p{animation:none}}
 .ic{display:inline-block;width:.95em;height:.95em;vertical-align:-.12em;flex:none;overflow:visible}
 
-/* why */
-.whys{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,64px)}
-.whys li{border-top:1px solid var(--line);padding-top:18px}
-.whys .n{color:var(--oxblood)}
-.whys h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,2.4vw,2.2rem);line-height:1.05;margin:14px 0 14px}
-.whys p{color:var(--mute);line-height:1.6}
-.whys a{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;transition:color .3s}
-.whys a:hover{color:var(--oxblood)}
-@media (max-width:900px){.whys{grid-template-columns:minmax(0,1fr)}}
+/* who we work with */
+.who{padding-bottom:clamp(40px,5vw,72px)}
+.whos{list-style:none;padding:0;margin:0}
+.whos li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) minmax(0,2.4fr);gap:clamp(16px,3vw,48px);align-items:baseline;padding-block:clamp(20px,2.4vw,30px);border-bottom:1px solid var(--line)}
+.whos li:first-child{padding-top:0}
+.whos h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,2.6vw,2.4rem);line-height:1.05}
+.whos p{color:var(--mute);line-height:1.6;max-width:34em}
+.whos .more{justify-self:end;text-decoration:none;color:var(--ink);display:inline-flex;gap:8px;align-items:center;white-space:nowrap;transition:color .3s}
+.whos .more .ic{transition:transform .4s var(--ease)}
+.whos .more:hover{color:var(--oxblood)}
+.whos .more:hover .ic{transform:translateX(3px)}
+@media (max-width:900px){.whos li{grid-template-columns:minmax(0,1fr);gap:10px}.whos .more{justify-self:start;margin-top:4px}.whos li>span:empty{display:none}}
 </style>
 </head>
 <body>
@@ -330,13 +333,16 @@ p{margin:0}
   <p class="readthru" id="readthru">Instinct builds a company. It rarely scales one. REAU Studio advises founders and leadership teams on growth, structure, technology and direction, and leaves each business clearer, quicker and considerably harder to ignore.</p>
 </section>
 
-<section class="why sec wrap" id="why" style="padding-top:0">
-  <div class="shead"><span class="label">Why REAU Studio</span><span class="label r">The short answer</span></div>
-  <ol class="whys">
-    <li><span class="n label">01</span><h3>One studio, not six suppliers</h3><p>Strategy, operations, technology and creative direction from a single studio, so nothing is lost in the handover. <a href="work/vis10n-holdings.html">VIS10N Holdings</a> trusts us with its brand, its website and the daily running of the business.</p></li>
-    <li><span class="n label">02</span><h3>Results you can count</h3><p>We are judged on numbers, and we rather like it that way. <a href="work/power-dental-group.html">Power Dental Group</a> grew its Instagram following 121 times over in eighteen months, with an engagement rate of 12%.</p></li>
-    <li><span class="n label">03</span><h3>We stay for the doing</h3><p>No deck left on the table with an invoice beneath it. We build the systems, run the day-to-day and see the plan through, for as long as it takes to <a href="#work">show in the results</a>.</p></li>
-  </ol>
+<section class="who wrap" id="who">
+  <div class="shead"><span class="label">Who we work with</span><span class="label r">And why they call</span></div>
+  <ul class="whos">
+    <li><h3>Start-ups</h3><p>When the idea is ready and the business around it is not quite. We put the structure, brand and systems in place to carry it.</p><span></span></li>
+    <li><h3>Consultancies &amp; agencies</h3><p>Firms who advise for a living and appreciate a second opinion. We sharpen the offer, the positioning and the way new work is won.</p><span></span></li>
+    <li><h3>Professional services firms</h3><p>Accountants, advisers and specialists with reputations to keep. We modernise how they present, operate and grow, discreetly.</p><span></span></li>
+    <li><h3>Venture capital &amp; private equity</h3><p>Investors who would like their companies to perform. We work alongside the founders they back, as we do across the VIS10N portfolio.</p><a class="more label" href="work/vis10n-holdings.html">See VIS10N Holdings <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+    <li><h3>Established brands</h3><p>Companies with a fine product and a quiet reputation. Power Dental Group became the best-performing dental instrument manufacturer on the internet.</p><a class="more label" href="work/power-dental-group.html">See Power Dental Group <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+    <li><h3>Brand-led founders &amp; creators</h3><p>People whose name is the brand. We look after the business behind the following, from content to operations.</p><a class="more label" href="#clients">See our clients <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+  </ul>
 </section>
 
 <section class="work sec wrap" id="work">
