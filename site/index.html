@@ -166,6 +166,7 @@ p{margin:0}
   .for{margin-top:12px;font-size:.88rem}
   .stack{border-radius:0 0 14px 14px}
 }
+@media (max-width:600px){.clients .shead{flex-direction:column;align-items:flex-start;gap:8px}.clients .shead .r{line-height:1.6;letter-spacing:.1em;font-size:.64rem}}
 /* clients on phones: three gliding rows */
 .marq{display:none}
 @media (max-width:600px){
@@ -186,7 +187,6 @@ p{margin:0}
 }
 @keyframes marq{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.mrow{animation:none}}
-}
 
 /* ---------- process: pinned, one stage at a time ---------- */
 .how{height:calc(var(--n) * 85vh + 100vh);position:relative}
@@ -271,7 +271,7 @@ p{margin:0}
 .post .rd{font-size:.82rem;color:var(--mute);margin-top:auto;transition:color .3s}
 .post:hover .rd{color:var(--ink)}
 @media (max-width:1000px){.jgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:480px){.jgrid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:480px){.jgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}.post{gap:10px}.post h3{font-size:1.18rem;line-height:1.12}.post .cat{font-size:.6rem}.post .rd{font-size:.74rem}.post .pic{aspect-ratio:1/1}}
 
 /* ---------- inquiries + footer ---------- */
 .inquire{background:var(--ink);color:var(--paper);padding-top:clamp(72px,10vw,140px);overflow:hidden}
