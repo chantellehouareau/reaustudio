@@ -1,0 +1,240 @@
+{
+  "slug": "vis10n-holdings",
+  "number": "02",
+  "client": "VIS10N Holdings",
+  "wordmark": "VIS10N HOLDINGS",
+  "sector": "Global holdings",
+  "location": "",
+  "engagement": "Ongoing",
+  "services": [
+    "Brand and Identity",
+    "Website Design and Development",
+    "Social Media and Personal Brand",
+    "Operations and Strategic Advisory"
+  ],
+  "website": "https://vis10nholdings.com",
+  "summary": "RayJ Dennis has a day job in the NBA. We look after the other one.",
+  "glance": {
+    "label": "At a glance",
+    "right": "The short version",
+    "overview": "The identity, the website, the operating structure and the daily running of things. We handle the lot, so RayJ can keep his eye on the ball, and on the companies he backs.",
+    "wins_label": "Quick wins",
+    "wins": [
+      "An identity fit for a global holding company, in place before the first handshake",
+      "Two editions of vis10nholdings.com. The second knows exactly who it is",
+      "VIS10N and RayJ, speaking with one voice across two accounts",
+      "A business that runs beautifully whether or not its CEO is in the building",
+      "Advisory across the portfolio, Luxe Assist AI included"
+    ]
+  },
+  "brief_label": "The brief",
+  "brief": "VIS10N Holdings invests in and builds ventures across sport, media, marketing, technology and real estate. Its founder, RayJ Dennis, also happens to play in the NBA. The company had to carry itself like an institution from the day it opened its doors, without borrowing hours its CEO simply does not have.",
+  "chapters": [
+    {
+      "numeral": "I",
+      "title": "Defining the identity",
+      "when": "The foundations",
+      "body": [
+        "We placed VIS10N where sport becomes enterprise: a partner-led holding company with an athlete's feel for the game and an investor's patience. The voice, the identity and the manner in which VIS10N introduces itself to founders, athletes and brands all take their cue from there.",
+        "The website has had two editions. The first opened the doors. The second furnished the house, with VIS10N's convictions, companies, founder and point of view all under one roof."
+      ],
+      "deliverables": [
+        "Positioning",
+        "Tone of voice",
+        "Visual identity",
+        "Website, edition I",
+        "Website, edition II"
+      ],
+      "showcase": {
+        "url": "https://vis10n.netlify.app/#home",
+        "editions": [
+          {
+            "label": "Edition I",
+            "desktop": {
+              "file": "vis10n website v1 full.jpg",
+              "label": "Edition I · full page",
+              "alt": "The first VIS10N Holdings website"
+            },
+            "url": "https://www.vis10nholdings.com"
+          },
+          {
+            "label": "Edition II",
+            "desktop": {
+              "file": "vis10n website v2 full.jpg",
+              "label": "Edition II · full page",
+              "alt": "The current VIS10N Holdings website"
+            },
+            "url": "https://vis10n.netlify.app/#home"
+          }
+        ],
+        "mobile": {
+          "file": "vis10n website v2 mobile.jpg",
+          "label": "Mobile",
+          "alt": "The VIS10N Holdings website on a phone"
+        }
+      }
+    },
+    {
+      "numeral": "II",
+      "title": "Speaking for the founder",
+      "when": "Ongoing",
+      "body": [
+        "A holding company and its founder's reputation are rarely strangers, so we look after both. VIS10N speaks to founders, partners and investors. RayJ's personal brand tells the story of an athlete who builds.",
+        "Two audiences, two accounts, one rather consistent point of view."
+      ],
+      "deliverables": [
+        "Social strategy",
+        "Content direction",
+        "Community management",
+        "Personal brand"
+      ],
+      "row": [
+        {
+          "file": "vis10n social 1.png",
+          "label": "VIS10N",
+          "alt": "VIS10N Holdings social content"
+        },
+        {
+          "file": "vis10n social 2.png",
+          "label": "VIS10N",
+          "alt": "VIS10N Holdings social content"
+        },
+        {
+          "file": "vis10n social 3.png",
+          "label": "VIS10N",
+          "alt": "VIS10N Holdings social content"
+        },
+        {
+          "file": "ray j social 1.png",
+          "label": "RayJ",
+          "alt": "RayJ personal brand content"
+        },
+        {
+          "file": "ray j social 2.png",
+          "label": "RayJ",
+          "alt": "RayJ personal brand content"
+        },
+        {
+          "file": "ray j social 3.png",
+          "label": "RayJ",
+          "alt": "RayJ personal brand content"
+        }
+      ]
+    },
+    {
+      "numeral": "III",
+      "title": "Running the business",
+      "when": "Operations",
+      "body": [
+        "A holding company cannot wait for its CEO to finish practice. We built the structure VIS10N runs on and took the day-to-day off his hands: systems, processes and client management, quietly kept in order.",
+        "The result is a business that behaves impeccably whether or not its founder is in the room."
+      ],
+      "deliverables": [
+        "Business organisation",
+        "Systems and processes",
+        "Client management",
+        "Day-to-day operations"
+      ],
+      "roadmap_label": "How the business runs",
+      "roadmap": [
+        {
+          "kicker": "Organisation",
+          "title": "Clear structure",
+          "text": "Every area of the business has an owner, and every decision has a home."
+        },
+        {
+          "kicker": "Systems & processes",
+          "title": "Work that moves",
+          "text": "Connected tools and workflows, so tasks progress without anyone chasing them."
+        },
+        {
+          "kicker": "Client management",
+          "title": "Every relationship in order",
+          "text": "One clear view of each partner and client: where things stand and what comes next."
+        },
+        {
+          "kicker": "Operations",
+          "title": "The day-to-day, handled",
+          "text": "REAU Studio manages the daily running of VIS10N and keeps everything moving."
+        },
+        {
+          "kicker": "Leadership",
+          "title": "Time back for the CEO",
+          "text": "RayJ's hours now go where they count: training, games, and sitting across the table from the founders VIS10N backs."
+        }
+      ]
+    },
+    {
+      "numeral": "IV",
+      "title": "Across the portfolio",
+      "when": "Partner companies",
+      "body": [
+        "Good work has a way of getting introduced. Through VIS10N we advise its partner companies on operations and marketing. The brief changes with every business; the standard does not.",
+        "Luxe Assist AI, co-founded by RayJ within the VIS10N ecosystem, is one of them, and has a story of its own."
+      ],
+      "deliverables": [
+        "Operational advisory",
+        "Marketing advisory",
+        "Partner strategy"
+      ],
+      "related": {
+        "label": "Related case study",
+        "title": "Luxe Assist AI",
+        "text": "Operational and marketing advisory for the AI assistance company co-founded by RayJ Dennis.",
+        "href": "",
+        "note": "In preparation"
+      },
+      "logos_label": "The VIS10N portfolio",
+      "logos": [
+        {
+          "file": "logo healf.png",
+          "name": "Healf",
+          "hl": false
+        },
+        {
+          "file": "logo augment.png",
+          "name": "Augment",
+          "hl": false
+        },
+        {
+          "file": "logo atorie.png",
+          "name": "Atorie",
+          "hl": false
+        },
+        {
+          "file": "logo luxe.png",
+          "name": "Luxe Assist AI",
+          "hl": true
+        },
+        {
+          "file": "logo baselayer.png",
+          "name": "Baselayer",
+          "hl": false
+        },
+        {
+          "file": "logo rorra.png",
+          "name": "Rorra",
+          "hl": false
+        },
+        {
+          "file": "logo ziggiz.png",
+          "name": "Ziggiz",
+          "hl": false
+        }
+      ]
+    }
+  ],
+  "closing": {
+    "label": "The result",
+    "right": "Still in motion",
+    "text": "VIS10N carries itself like an institution, runs like one, and leaves its founder free to do what got him here in the first place."
+  },
+  "next": {
+    "label": "Next case study",
+    "title": "Closet Fairy Styling",
+    "note": "In preparation",
+    "href": "../index.html#work"
+  },
+  "layout": "stacked",
+  "role": "Operating, creative and strategic partner"
+}
