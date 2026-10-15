@@ -79,5 +79,13 @@ footer a:hover{text-decoration:underline}
 <a class="next" href="copycat-content.html"><div><span class="label">Next article · Perspective</span><h2>Copycat content is ruining your brand</h2></div><span class="arr"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 </main>
 <footer><span>© 2026 REAU Studio LTD · 128 City Road, London</span><span><a href="https://instagram.com/reau.studio" target="_blank" rel="noopener">Instagram</a> · <a href="https://linkedin.com/in/reaustudio" target="_blank" rel="noopener">LinkedIn</a></span></footer>
+<script>
+// Every link opens in a new tab, except in-page jumps, email/phone links and the site's own navigation
+(function(){function go(){[].forEach.call(document.querySelectorAll('a[href]'),function(a){var h=a.getAttribute('href')||'';
+  if(!h||h.charAt(0)==='#'||/^(mailto:|tel:|javascript:)/i.test(h))return;
+  if(a.closest('header,.hdr,.sheet,nav'))return;
+  a.target='_blank';var r=(a.getAttribute('rel')||'').split(/ +/);if(r.indexOf('noopener')<0)r.push('noopener');a.setAttribute('rel',r.join(' ').trim());});}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();
+</script>
 </body>
 </html>

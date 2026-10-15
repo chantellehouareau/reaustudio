@@ -677,5 +677,13 @@ figcaption{color:var(--mute)}
   $('#yr').textContent=new Date().getFullYear();
 })();
 </script>
+<script>
+// Every link opens in a new tab, except in-page jumps, email/phone links and the site's own navigation
+(function(){function go(){[].forEach.call(document.querySelectorAll('a[href]'),function(a){var h=a.getAttribute('href')||'';
+  if(!h||h.charAt(0)==='#'||/^(mailto:|tel:|javascript:)/i.test(h))return;
+  if(a.closest('header,.hdr,.sheet,nav'))return;
+  a.target='_blank';var r=(a.getAttribute('rel')||'').split(/ +/);if(r.indexOf('noopener')<0)r.push('noopener');a.setAttribute('rel',r.join(' ').trim());});}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();
+</script>
 </body>
 </html>
