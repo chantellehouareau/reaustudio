@@ -178,6 +178,11 @@ p{margin:0}
   .mrow .f{color:var(--ink);font-weight:500}
   .mrow>*+*::before{content:"\00B7";margin-right:28px;margin-left:-14px;color:var(--unlit)}
   .marq:active .mrow{animation-play-state:paused}
+  .spot{position:relative;height:2.6rem;overflow:hidden;margin-block:6px}
+  .spot>*{position:absolute;left:0;right:0;top:0;text-align:center;font-family:var(--sans);font-weight:500;font-size:1.55rem;letter-spacing:-.01em;line-height:2.6rem;color:var(--ink);text-decoration:none;white-space:nowrap;padding:0;transform:translateY(100%);opacity:0;transition:transform .7s var(--ease),opacity .7s var(--ease)}
+  .spot>*::before{display:none}
+  .spot>.on{transform:none;opacity:1}
+  .spot>.out{transform:translateY(-100%);opacity:0}
 }
 @keyframes marq{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.mrow{animation:none}}
@@ -485,7 +490,7 @@ html.intro-on .hero .wordmark .ch,html.intro-on .hero-top,html.intro-on .ctas,ht
 
 <section class="clients sec wrap" id="clients">
   <div class="shead"><span class="label">Clients</span><span class="label r">Founders, athletes, firms &amp; public figures</span></div>
-  <p class="credits"><a class="f" href="https://powerdentalgroup.com" target="_blank" rel="noopener">Power Dental Group</a> <a class="f" href="https://luxeassist.ai" target="_blank" rel="noopener">Luxe Assist AI</a> <a class="f" href="https://vis10nholdings.com" target="_blank" rel="noopener">VIS10N Holdings</a> <a class="f" href="https://www.rsm.global/eswatini/" target="_blank" rel="noopener">RSM Eswatini</a> <a class="f" href="https://vestriumglobal.com" target="_blank" rel="noopener">VESTRIUM Global</a> <span class="f">Axion RMS</span> <span class="f">Wardrobe Department</span> <span class="f">HLB Eswatini</span> <a class="f" href="https://closetfairy.com" target="_blank" rel="noopener">Closet Fairy Styling</a> <a class="r" href="https://www.instagram.com/rayjdennis10/" target="_blank" rel="noopener">RayJ Dennis</a> <a class="r" href="https://vanessafabila.com" target="_blank" rel="noopener">Vanessa Fabila</a> <a class="r" href="https://assemble.fyi" target="_blank" rel="noopener">Assemble</a> <a class="r" href="https://styledbydes.com" target="_blank" rel="noopener">Styled by Des</a> <a class="r" href="https://kmohaus.com" target="_blank" rel="noopener">KMO Haus</a> <a class="r" href="https://www.instagram.com/inkosazana_official/" target="_blank" rel="noopener">Inko Sazana</a> <a class="r" href="https://ver--ona.com" target="_blank" rel="noopener">VERONA</a> <a class="r" href="https://www.instagram.com/radiantlyrelaxed/" target="_blank" rel="noopener">Radiantly Relaxed</a> <a class="r" href="https://instagram.com/bestselfsara" target="_blank" rel="noopener">Best Self Sara</a> <a class="r" href="https://www.instagram.com/treyyrogersofficial/" target="_blank" rel="noopener">Trey Rogers</a> <a class="r" href="https://instagram.com/sonia.elyss" target="_blank" rel="noopener">Sonia Elyss</a> <a class="r" href="https://tiktok.com/@chaosinchicago" target="_blank" rel="noopener">Daily Dose of Chicago</a> <a class="r" href="https://instagram.com/bova.wilson" target="_blank" rel="noopener">Bova Wilson</a> <a class="r" href="https://instagram.com/msmilanzoe" target="_blank" rel="noopener">Milan Zoe</a> <span class="r">Queen Group Realtors</span> <a class="r" href="https://curlqueenofficial.com" target="_blank" rel="noopener">Curl Queen Official</a> <span class="r">Ekam Organics</span> <span class="r">Charlotte Clark</span> <a class="r" href="https://taylarcoyer.com" target="_blank" rel="noopener">Taylar Coyer</a><span class="r quiet-line">And a number of clients who prefer we keep things quiet</span></p>
+  <p class="credits"><a class="f" href="https://powerdentalgroup.com" target="_blank" rel="noopener">Power Dental Group</a> <a class="f" href="https://luxeassist.ai" target="_blank" rel="noopener">Luxe Assist AI</a> <a class="f" href="https://vis10nholdings.com" target="_blank" rel="noopener">VIS10N Holdings</a> <a class="f" href="https://www.rsm.global/eswatini/" target="_blank" rel="noopener">RSM Eswatini</a> <a class="f" href="https://vestriumglobal.com" target="_blank" rel="noopener">VESTRIUM Global</a> <span class="f">Axion RMS</span> <span class="f">Wardrobe Department</span> <span class="f">HLB Eswatini</span> <a class="f" href="https://closetfairy.com" target="_blank" rel="noopener">Closet Fairy Styling</a> <a class="r" href="https://www.instagram.com/rayjdennis10/" target="_blank" rel="noopener">RayJ Dennis</a> <a class="r" href="https://vanessafabila.com" target="_blank" rel="noopener">Vanessa Fabila</a> <a class="r" href="https://assemble.fyi" target="_blank" rel="noopener">Assemble</a> <a class="r" href="https://styledbydes.com" target="_blank" rel="noopener">Styled by Des</a> <a class="r" href="https://kmohaus.com" target="_blank" rel="noopener">KMO Haus</a> <a class="r" href="https://www.instagram.com/inkosazana_official/" target="_blank" rel="noopener">Inko Sazana</a> <span class="r">VERONA</span> <a class="r" href="https://www.instagram.com/radiantlyrelaxed/" target="_blank" rel="noopener">Radiantly Relaxed</a> <a class="r" href="https://instagram.com/bestselfsara" target="_blank" rel="noopener">Best Self Sara</a> <a class="r" href="https://www.instagram.com/treyyrogersofficial/" target="_blank" rel="noopener">Trey Rogers</a> <a class="r" href="https://instagram.com/sonia.elyss" target="_blank" rel="noopener">Sonia Elyss</a> <span class="r">Daily Dose of Chicago</span> <a class="r" href="https://instagram.com/bova.wilson" target="_blank" rel="noopener">Bova Wilson</a> <a class="r" href="https://instagram.com/msmilanzoe" target="_blank" rel="noopener">Milan Zoe</a> <span class="r">Queen Group Realtors</span> <a class="r" href="https://curlqueenofficial.com" target="_blank" rel="noopener">Curl Queen Official</a> <span class="r">Ekam Organics</span> <span class="r">Charlotte Clark</span> <span class="r">Taylar Coyer</span><span class="r quiet-line">And a number of clients who prefer we keep things quiet</span></p>
 </section>
 
 <section class="sec wrap" id="services" style="padding-top:0">
@@ -660,15 +665,23 @@ html.intro-on .hero .wordmark .ch,html.intro-on .hero-top,html.intro-on .ctas,ht
 
 
 
-  // Clients on phones: split the list into three slowly gliding rows
+  // Clients on phones: the featured names take turns centre stage between two gliding rows
   (function(){var c=document.querySelector('.credits');if(!c)return;
     var items=[].slice.call(c.children).filter(function(e){return !e.classList.contains('quiet-line');});
+    var star=items.filter(function(e){return e.classList.contains('f')||/RayJ Dennis/.test(e.textContent);});
+    var rest=items.filter(function(e){return star.indexOf(e)<0;});
     var m=document.createElement('div');m.className='marq';m.setAttribute('aria-hidden','true');
-    var rows=[[],[],[]];items.forEach(function(e,i){rows[i%3].push(e);});
-    rows.forEach(function(r,k){var row=document.createElement('div');row.className='mrow'+(k===1?' rev':'');row.style.setProperty('--d',(52+k*9)+'s');
-      for(var n=0;n<2;n++)r.forEach(function(e){var x=e.cloneNode(true);x.tabIndex=-1;row.appendChild(x);});m.appendChild(row);});
+    function row(list,k){var r=document.createElement('div');r.className='mrow'+(k?' rev':'');r.style.setProperty('--d',(54+k*10)+'s');
+      for(var n=0;n<2;n++)list.forEach(function(e){var x=e.cloneNode(true);x.tabIndex=-1;x.className='r';r.appendChild(x);});return r;}
+    var half=Math.ceil(rest.length/2);
+    var spot=document.createElement('div');spot.className='spot';
+    star.forEach(function(e,k){var x=e.cloneNode(true);x.className='f'+(k===0?' on':'');x.tabIndex=-1;spot.appendChild(x);});
+    m.appendChild(row(rest.slice(0,half),0));m.appendChild(spot);m.appendChild(row(rest.slice(half),1));
     c.insertBefore(m,c.querySelector('.quiet-line'));c.classList.add('has-marq');
+    var ss=[].slice.call(spot.children),k=0;
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(function(){ss[k].classList.remove('on');ss[k].classList.add('out');var o=ss[k];setTimeout(function(){o.classList.remove('out');},700);k=(k+1)%ss.length;ss[k].classList.add('on');},2400);
   })();
+
   // Who we work with: pill tabs, gently auto-advancing while in view until someone chooses
   (function(){var box=document.querySelector('[data-who]');if(!box)return;var tabs=[].slice.call(box.querySelectorAll('.wtab')),ps=[].slice.call(box.querySelectorAll('.wp')),cur=0,timer=null,user=false,DUR=6000;
     function show(i,focus){cur=i;tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===i?'true':'false');t.tabIndex=k===i?0:-1;});ps.forEach(function(p,k){p.classList.toggle('on',k===i);});
