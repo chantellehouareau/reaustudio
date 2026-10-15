@@ -204,7 +204,8 @@ html.ready{scroll-behavior:smooth}
 .tabs button[aria-selected="true"]{color:var(--ink);border-color:var(--line)}
 .tabs button:hover{color:var(--ink)}
 .chrome .addr{margin-left:auto;font-size:.78rem;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:5px 14px}
-.screen{position:relative;aspect-ratio:16/10;overflow-y:auto;overflow-x:hidden;background:#ECEBE7;scrollbar-width:thin;scrollbar-color:rgba(11,11,11,.3) transparent;-webkit-overflow-scrolling:touch}
+.screen{position:relative;aspect-ratio:16/10;overflow:hidden;background:#ECEBE7;cursor:default}
+.screen .shot img{transform:translateY(0);transition:transform 1.4s cubic-bezier(.45,0,.25,1);will-change:transform}
 .shot{display:none}
 .shot.on{display:block}
 .shot img,.shot .ph{display:block;width:100%;height:auto}
@@ -656,7 +657,16 @@ figcaption{color:var(--mute)}
   $$('[data-showcase]').forEach(function(sc){
     var tabs=$$('.tabs button',sc), shots=$$('.browser .shot',sc);
     tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){x.setAttribute('aria-selected',x===t?'true':'false')});shots.forEach(function(s){s.classList.toggle('on',s.dataset.ed===t.dataset.ed);});});});
-    tabs.forEach(function(t){t.addEventListener('click',function(){var scr=$('.browser .screen',sc);if(scr)scr.scrollTop=0;var ad=$('.addr',sc);if(ad&&t.dataset.host)ad.textContent=t.dataset.host;});});
+    // Pan the screenshot through the page while hovered (tap to toggle on touch); the page itself never scrolls
+    $$('.screen',sc).forEach(function(scr){
+      function img(){var o=$('.shot.on img',scr)||$('.shot img',scr);return o;}
+      function go(){var i=img();if(!i)return;var d=Math.max(0,i.offsetHeight-scr.clientHeight);if(reduce){i.style.transition='none';}i.style.transitionDuration=Math.min(14,Math.max(2,d/420))+'s';i.style.transform='translateY(-'+d+'px)';scr.classList.add('pan');}
+      function back(){var i=img();if(!i)return;i.style.transitionDuration=Math.min(2.4,Math.max(.8,(i.offsetHeight-scr.clientHeight)/2600))+'s';i.style.transform='translateY(0)';scr.classList.remove('pan');}
+      scr.addEventListener('mouseenter',go);scr.addEventListener('mouseleave',back);
+      scr.addEventListener('focus',go);scr.addEventListener('blur',back);
+      scr.addEventListener('click',function(e){if(matchMedia('(hover: none)').matches){scr.classList.contains('pan')?back():go();}});
+    });
+    tabs.forEach(function(t){t.addEventListener('click',function(){$$('.screen .shot img',sc).forEach(function(i){i.style.transitionDuration='0s';i.style.transform='translateY(0)';});$$('.screen',sc).forEach(function(x){x.classList.remove('pan')});var ad=$('.addr',sc);if(ad&&t.dataset.host)ad.textContent=t.dataset.host;});});
   });
 
   // Roadmap: the line fills as you scroll and each stage lights when reached

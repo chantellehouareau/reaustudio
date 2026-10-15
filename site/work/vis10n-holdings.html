@@ -204,7 +204,8 @@ html.ready{scroll-behavior:smooth}
 .tabs button[aria-selected="true"]{color:var(--ink);border-color:var(--line)}
 .tabs button:hover{color:var(--ink)}
 .chrome .addr{margin-left:auto;font-size:.78rem;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:5px 14px}
-.screen{position:relative;aspect-ratio:16/10;overflow-y:auto;overflow-x:hidden;background:#ECEBE7;scrollbar-width:thin;scrollbar-color:rgba(11,11,11,.3) transparent;-webkit-overflow-scrolling:touch}
+.screen{position:relative;aspect-ratio:16/10;overflow:hidden;background:#ECEBE7;cursor:default}
+.screen .shot img{transform:translateY(0);transition:transform 1.4s cubic-bezier(.45,0,.25,1);will-change:transform}
 .shot{display:none}
 .shot.on{display:block}
 .shot img,.shot .ph{display:block;width:100%;height:auto}
@@ -446,10 +447,10 @@ figcaption{color:var(--mute)}
 <div class="delivered"><span class="label">Delivered</span><span class="chip">Positioning</span><span class="chip">Tone of voice</span><span class="chip">Visual identity</span><span class="chip">Website, edition I</span><span class="chip">Website, edition II</span></div>
 <div class="showcase" data-showcase>
   <div class="browser"><div class="chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><div class="tabs" role="tablist" aria-label="Website editions"><button type="button" role="tab" aria-selected="false" data-ed="0" data-host="www.vis10nholdings.com">Edition I</button><button type="button" role="tab" aria-selected="true" data-ed="1" data-host="vis10n.netlify.app">Edition II</button></div></div>
-  <div class="screen" tabindex="0" aria-label="Website preview, scroll to explore"><div class="shot" data-ed="0"><img src="../assets/work/vis10n-holdings/vis10n website v1 full.jpg" alt="The first VIS10N Holdings website" loading="lazy"></div><div class="shot on" data-ed="1"><img src="../assets/work/vis10n-holdings/vis10n website v2 full.jpg" alt="The current VIS10N Holdings website" loading="lazy"></div></div></div>
+  <div class="screen" tabindex="0" aria-label="Website preview, hover to explore"><div class="shot" data-ed="0"><img src="../assets/work/vis10n-holdings/vis10n website v1 full.jpg" alt="The first VIS10N Holdings website" loading="lazy"></div><div class="shot on" data-ed="1"><img src="../assets/work/vis10n-holdings/vis10n website v2 full.jpg" alt="The current VIS10N Holdings website" loading="lazy"></div></div></div>
   <div class="phone" aria-hidden="false"><div class="notch"></div><div class="screen"><div class="shot on"><img src="../assets/work/vis10n-holdings/vis10n website v2 mobile.jpg" alt="The VIS10N Holdings website on a phone" loading="lazy"></div></div></div>
 </div>
-<div class="sc-foot"><span class="label">Scroll inside the window to explore. Switch editions in the tabs.</span><a class="label" href="https://vis10n.netlify.app/#home" target="_blank" rel="noopener">Visit vis10n.netlify.app/#home <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+<div class="sc-foot"><span class="label">Hover over the screens to explore. Switch editions in the tabs.</span><a class="label" href="https://vis10n.netlify.app/#home" target="_blank" rel="noopener">Visit vis10n.netlify.app/#home <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
 </div></div></section>
 
 <section class="chapter wrap stacked" id="part-2">
@@ -607,7 +608,16 @@ figcaption{color:var(--mute)}
   $$('[data-showcase]').forEach(function(sc){
     var tabs=$$('.tabs button',sc), shots=$$('.browser .shot',sc);
     tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){x.setAttribute('aria-selected',x===t?'true':'false')});shots.forEach(function(s){s.classList.toggle('on',s.dataset.ed===t.dataset.ed);});});});
-    tabs.forEach(function(t){t.addEventListener('click',function(){var scr=$('.browser .screen',sc);if(scr)scr.scrollTop=0;var ad=$('.addr',sc);if(ad&&t.dataset.host)ad.textContent=t.dataset.host;});});
+    // Pan the screenshot through the page while hovered (tap to toggle on touch); the page itself never scrolls
+    $$('.screen',sc).forEach(function(scr){
+      function img(){var o=$('.shot.on img',scr)||$('.shot img',scr);return o;}
+      function go(){var i=img();if(!i)return;var d=Math.max(0,i.offsetHeight-scr.clientHeight);if(reduce){i.style.transition='none';}i.style.transitionDuration=Math.min(14,Math.max(2,d/420))+'s';i.style.transform='translateY(-'+d+'px)';scr.classList.add('pan');}
+      function back(){var i=img();if(!i)return;i.style.transitionDuration=Math.min(2.4,Math.max(.8,(i.offsetHeight-scr.clientHeight)/2600))+'s';i.style.transform='translateY(0)';scr.classList.remove('pan');}
+      scr.addEventListener('mouseenter',go);scr.addEventListener('mouseleave',back);
+      scr.addEventListener('focus',go);scr.addEventListener('blur',back);
+      scr.addEventListener('click',function(e){if(matchMedia('(hover: none)').matches){scr.classList.contains('pan')?back():go();}});
+    });
+    tabs.forEach(function(t){t.addEventListener('click',function(){$$('.screen .shot img',sc).forEach(function(i){i.style.transitionDuration='0s';i.style.transform='translateY(0)';});$$('.screen',sc).forEach(function(x){x.classList.remove('pan')});var ad=$('.addr',sc);if(ad&&t.dataset.host)ad.textContent=t.dataset.host;});});
   });
 
   // Roadmap: the line fills as you scroll and each stage lights when reached
