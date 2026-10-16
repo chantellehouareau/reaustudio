@@ -940,3 +940,4 @@ if __name__ == "__main__":
         print("built", build(p))
     print("built", build_consult())
     for f in iconify_static(): print("cleaned", f)
+    import seo; print("seo:", len(seo.run()), "pages")
